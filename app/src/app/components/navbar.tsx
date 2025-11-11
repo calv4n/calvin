@@ -1,7 +1,25 @@
+import Link from "next/link";
+
 export default function Navbar() {
+  const navItems = [
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+    { name: "Calvin Pfrender", href: "#" },
+  ];
+
+
   return (
-    <nav className="fixed top-0 left-0 w-full h-20 flex items-center px-10 z-50">
-      <h1 className="text-2xl font-bold">My Navbar</h1>
-    </nav>
+    <>
+      <nav className="fixed top-0 w-full h-32 flex items-center justify-center px-10 z-50">
+        <ul className="flex space-x-8">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              <Link className="text-black " href={item.href}>{item.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
   );
 }
