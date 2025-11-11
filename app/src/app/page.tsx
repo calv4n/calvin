@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col min-h-[calc(100vh-48px)] items-start justify-end pb-48 gap-12 bg-red-300">
+      <div className="flex flex-col min-h-[calc(100vh-48px)] items-start justify-end pb-48 gap-12">
         <div className="flex flex-col items-start">
           <SplitText text="Calvin" {...splitTextProps} />
           <SplitText text="Pfrender" {...splitTextProps} />
