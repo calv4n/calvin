@@ -15,25 +15,28 @@ export default function Home() {
     textAlign: "center" as const,
   };
 
-  const subTitleProps = {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
-  }
+  const subtitleText =
+    "I am a full-stack developer interested in creating websites and other random tools on the internet.";
 
-  const textProps = {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  }
+  const text = {
+    first: "With a passion for modern web technologies, I've had the privilege of building robust web apps and creating delightful user experiences.",
+    second: "I am constantly exploring new tools and techniques to enhance my skills and deliver high-quality solutions."
+  };
 
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans bg-red-300">
-      <div className="flex flex-col items-start justify-center">
+    <div className="flex flex-col min-h-screen items-start justify-center bg-red-300 gap-12">
+      <div className="flex flex-col items-start">
         <SplitText text="Calvin" {...splitTextProps} />
         <SplitText text="Pfrender" {...splitTextProps} />
       </div>
-      <div>
-        <div>
-          <p>
-            
-          </p>
+      <div className="w-full flex flex-row gap-24">
+        <div className="text-3xl font-medium max-w-xl">
+          <p>{subtitleText}</p>
+        </div>
+        <div className="text-sm text-gray-700 font-medium">
+          <p>{text.first}</p>
+          <br/>
+          <p>{text.second}</p>
         </div>
       </div>
     </div>
