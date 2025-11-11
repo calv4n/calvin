@@ -3,7 +3,7 @@ import SplitText from "@/components/SplitText";
 
 export default function Home() {
   const splitTextProps = {
-    className: "text-9xl text-center font-[Bdogrotesk] font-[1000]",
+    className: "text-8xl md:text-9xl text-center font-[Bdogrotesk] font-[1000]",
     delay: 75,
     duration: 0.5,
     ease: "power3.out" as const,
@@ -24,12 +24,12 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen items-start justify-center bg-red-300 gap-12">
+    <div className="flex flex-col min-h-[calc(100vh-96px)] items-start justify-end pb-48 gap-12">
       <div className="flex flex-col items-start">
         <SplitText text="Calvin" {...splitTextProps} />
         <SplitText text="Pfrender" {...splitTextProps} />
       </div>
-      <div className="w-full flex flex-row gap-24">
+      <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
         <div className="text-3xl font-medium max-w-xl">
           <p>{subtitleText}</p>
         </div>
