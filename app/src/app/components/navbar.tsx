@@ -26,7 +26,7 @@ export default function Navbar() {
           ))}
           </ul>
         
-          <div className='text-sm font-medium'>
+          <div className='hidden md:block text-sm font-medium'>
             <Link href="#">
               {brandName}
             </Link>
