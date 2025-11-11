@@ -1,5 +1,6 @@
 "use client";
 import SplitText from "@/components/SplitText";
+import Experience from "./experience/page";
 
 export default function Home() {
   const splitTextProps = {
@@ -24,21 +25,24 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-96px)] items-start justify-end pb-48 gap-12">
-      <div className="flex flex-col items-start">
-        <SplitText text="Calvin" {...splitTextProps} />
-        <SplitText text="Pfrender" {...splitTextProps} />
-      </div>
-      <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
-        <div className="text-3xl font-medium max-w-xl">
-          <p>{subtitleText}</p>
+    <>
+      <div className="flex flex-col min-h-[calc(100vh-48px)] items-start justify-end pb-48 gap-12 bg-red-300">
+        <div className="flex flex-col items-start">
+          <SplitText text="Calvin" {...splitTextProps} />
+          <SplitText text="Pfrender" {...splitTextProps} />
         </div>
-        <div className="text-sm text-gray-700 font-medium">
-          <p>{text.first}</p>
-          <br/>
-          <p>{text.second}</p>
+        <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
+          <div className="text-3xl font-medium max-w-xl">
+            <p>{subtitleText}</p>
+          </div>
+          <div className="text-sm text-gray-700 font-medium">
+            <p>{text.first}</p>
+            <br />
+            <p>{text.second}</p>
+          </div>
         </div>
       </div>
-    </div>
+      <Experience />
+    </>
   );
 }
