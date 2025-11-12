@@ -26,22 +26,29 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col min-h-[calc(100vh-48px)] items-start justify-end pb-48 gap-12">
-        <div className="flex flex-col items-start">
-          <SplitText text="Calvin" {...splitTextProps} />
-          <SplitText text="Pfrender" {...splitTextProps} />
+      <section className="p-[48px] bg-[#fff9f0]">
+        <div className="max-w-7xl mx-auto">
+          <header className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 gap-12">
+            <div className="flex flex-col items-start">
+              <SplitText text="Calvin" {...splitTextProps} />
+              <SplitText text="Pfrender" {...splitTextProps} />
+            </div>
+
+            <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
+              <div className="text-3xl font-medium max-w-xl">
+                <p>{subtitleText}</p>
+              </div>
+
+              <div className="hidden md:block text-sm text-gray-700 font-medium">
+                <p>{text.first}</p>
+                <br />
+                <p>{text.second}</p>
+              </div>
+            </div>
+          </header>
         </div>
-        <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
-          <div className="text-3xl font-medium max-w-xl">
-            <p>{subtitleText}</p>
-          </div>
-          <div className="text-sm text-gray-700 font-medium">
-            <p>{text.first}</p>
-            <br />
-            <p>{text.second}</p>
-          </div>
-        </div>
-      </div>
+      </section>
+
       <Experience />
     </>
   );
