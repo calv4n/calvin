@@ -1,7 +1,7 @@
 export default function Experience() {
 
     return (
-        <section className="p-[48px] bg-[#1c1c1c] text-white ">
+        <section id="experience" className="p-[48px] bg-[#1c1c1c] text-white ">
             <div className="max-w-7xl mx-auto">
                 <div className="min-h-[calc(100vh-96px)] pt-18">
                     <h1 className="text-5xl font-bold mb-8">Experience</h1>

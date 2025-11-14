@@ -20,9 +20,7 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="hidden md:block text-sm font-medium">
-          <Link href="#home">
-            {brandName}
-          </Link>
+          <Link href="#home">{brandName}</Link>
         </div>
       </div>
     </nav>

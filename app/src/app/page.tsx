@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="p-[48px] bg-[#fff9f0]">
+      <section id="home" className="p-[48px] bg-[#fff9f0]">
         <div className="max-w-7xl mx-auto">
           <header className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 gap-12">
             <div className="flex flex-col items-start">
