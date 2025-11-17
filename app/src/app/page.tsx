@@ -1,6 +1,7 @@
 "use client";
 import SplitText from "@/components/SplitText";
 import Experience from "./experience/page";
+import AnimatedContent from "@/components/AnimatedContent";
 
 export default function Home() {
   const splitTextProps = {
@@ -34,17 +35,29 @@ export default function Home() {
               <SplitText text="Pfrender" {...splitTextProps} />
             </div>
 
-            <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
-              <div className="text-3xl font-medium max-w-xl">
-                <p>{subtitleText}</p>
+            <AnimatedContent
+              distance={70}
+              direction="vertical"
+              reverse={false}
+              duration={0.8}
+              ease="power3.out"
+              initialOpacity={0.2}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={0}
+            >
+              <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
+                <div className="text-3xl font-medium max-w-xl">
+                  <p>{subtitleText}</p>
+                </div>
+                <div className="hidden md:block text-sm text-gray-700 font-medium">
+                  <p>{text.first}</p>
+                  <br />
+                  <p>{text.second}</p>
+                </div>
               </div>
-
-              <div className="hidden md:block text-sm text-gray-700 font-medium">
-                <p>{text.first}</p>
-                <br />
-                <p>{text.second}</p>
-              </div>
-            </div>
+            </AnimatedContent>
           </header>
         </div>
       </section>
