@@ -1,6 +1,23 @@
 "use client";
 import AnimatedContent from "@/components/AnimatedContent";
 
+const experiences = [
+    {
+        head: "Software Developer Apprentice",
+        subhead: "SIX Group AG",
+        items: [
+            {
+                timeline: "2022 - 2023",
+                depname: "Bbc AG",
+            },
+            {
+                timeline: "2023 - 2026",
+                depname: "Full Stack Developer",
+            },
+        ],
+    },
+];
+
 export default function Experience() {
 
     return (
@@ -20,9 +37,14 @@ export default function Experience() {
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-18">
                         <h1 className="text-5xl font-bold mb-8">Experience</h1>
-                        <p className="text-lg text-gray-300">
-                            This is the Experience section. Here you can showcase your professional experience, projects, and accomplishments.
-                        </p>
+                        <div>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+
+                        </div>
                     </div>
                 </AnimatedContent>
             </div>
