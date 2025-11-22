@@ -2,6 +2,7 @@
 import SplitText from "@/components/SplitText";
 import Experience from "./experience/page";
 import AnimatedContent from "@/components/AnimatedContent";
+import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Home() {
   const splitTextProps = {
@@ -19,10 +20,8 @@ export default function Home() {
 
   const subtitleText =
     "Swiss developer based near Zurich finishing his apprenticeship.";
-  const text = {
-    first: "Building and maintaining web applications and internal automations at SIX, focused on clarity, reliability, and best practices.",
-    second: "Constantly improving myself, both as a developer and as a person."
-  };
+  const textFirst =
+    "Building and maintaining web applications and internal automations at SIX, focused on clarity, reliability, and best practices.";
 
   return (
     <>
@@ -51,9 +50,15 @@ export default function Home() {
                   <p>{subtitleText}</p>
                 </div>
                 <div className="hidden md:block text-sm text-gray-700 font-medium">
-                  <p>{text.first}</p>
+                  <p>{textFirst}</p>
                   <br />
-                  <p>{text.second}</p>
+                  <p>
+                    Constantly{" "}
+                    <Highlighter action="highlight" color="#ffc700">
+                      improving
+                    </Highlighter>{" "}
+                    myself, both as a developer and as a person.
+                  </p>
                 </div>
               </div>
             </AnimatedContent>
