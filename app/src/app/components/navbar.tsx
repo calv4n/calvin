@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+
+import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Navbar() {
   const navItems = [
@@ -6,6 +10,7 @@ export default function Navbar() {
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
+    { name: "Ask me", href: "#askme", underline: true },
   ];
 
   const brandName = "Calvin Pfrender";
@@ -14,9 +19,17 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full p-[48px] z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <ul className="flex space-x-8">
-          {navItems.map(({ name, href }) => (
+          {navItems.map(({ name, href, underline }) => (
             <li key={name} className="text-sm font-medium hover:text-gray-600">
-              <Link href={href}>{name}</Link>
+              <Link href={href}>
+                {underline ? (
+                  <Highlighter action="underline" color="#FF9800">
+                    {name}
+                  </Highlighter>
+                ) : (
+                  name
+                )}
+              </Link>
             </li>
           ))}
         </ul>
