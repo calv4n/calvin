@@ -18,11 +18,10 @@ export default function Home() {
   };
 
   const subtitleText =
-    "I am a full-stack developer interested in creating websites and other random tools on the internet.";
-
+    "Swiss developer based near Zurich finishing his apprenticeship.";
   const text = {
-    first: "With a passion for modern web technologies, I've had the privilege of building robust web apps and creating delightful user experiences.",
-    second: "I am constantly exploring new tools and techniques to enhance my skills and deliver high-quality solutions."
+    first: "Building and maintaining web applications and internal automations at SIX, focused on clarity, reliability, and best practices.",
+    second: "Constantly improving myself, both as a developer and as a person."
   };
 
   return (
