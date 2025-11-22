@@ -23,7 +23,7 @@ export default function Navbar() {
             <li key={name} className="text-sm font-medium hover:text-gray-600">
               <Link href={href}>
                 {underline ? (
-                  <Highlighter action="underline" color="#FF9800">
+                  <Highlighter action="underline" color="#ffc700">
                     {name}
                   </Highlighter>
                 ) : (
