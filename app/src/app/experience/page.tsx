@@ -1,5 +1,7 @@
 "use client";
 import AnimatedContent from "@/components/AnimatedContent";
+import { Highlighter } from "@/components/ui/highlighter";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const experiences = [
   {
@@ -37,8 +39,9 @@ export default function Experience() {
           <div className="min-h-[calc(100vh-96px)] pt-18">
             <h1 className="text-5xl font-bold mb-12">Experience</h1>
 
-            <div className="space-y-12">
+            <div className="space-y-12 max-w-3xl">
               {experiences.map((exp) => (
+                <Highlighter action="bracket" color="#0038ff">
                 <div key={`${exp.role}-${exp.company}`} className="flex gap-8">
                   <div className="w-32 shrink-0 text-sm text-gray-400">
                     {exp.timeline}
@@ -55,8 +58,11 @@ export default function Experience() {
                     </p>
                   </div>
                 </div>
+                </Highlighter>
               ))}
             </div>
+
+
           </div>
         </AnimatedContent>
       </div>
