@@ -52,8 +52,12 @@ export default function Experience() {
                         <div className="flex flex-row">
                             <div className="space-y-12 max-w-2xl">
                                 {experiences.map((exp) => (
-                                    <Highlighter action="bracket" color="#0038ff">
-                                        <div key={`${exp.role}-${exp.company}`} className="flex gap-8 mr-12">
+                                    <Highlighter
+                                        key={`${exp.role}-${exp.company}`}
+                                        action="bracket"
+                                        color="#0038ff"
+                                    >
+                                        <div className="flex gap-8 mr-12">
                                             <div className="w-32 shrink-0 text-sm text-gray-400">
                                                 {exp.timeline}
                                             </div>
