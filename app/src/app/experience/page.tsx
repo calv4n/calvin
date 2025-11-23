@@ -2,52 +2,64 @@
 import AnimatedContent from "@/components/AnimatedContent";
 
 const experiences = [
-    {
-        head: "Software Developer Apprentice",
-        subhead: "SIX Group AG",
-        items: [
-            {
-                timeline: "2022 - 2023",
-                depname: "Bbc AG",
-            },
-            {
-                timeline: "2023 - 2026",
-                depname: "Full Stack Developer",
-            },
-        ],
-    },
+  {
+    timeline: "2022 - 2026",
+    role: "Software Developer Apprentice",
+    company: "SIX Group AG",
+    employment: "Apprenticeship",
+    text: "During my apprenticeship, I built and maintained various internal web applications and automations, taking ownership of both development and ongoing improvements. I also gained experience in agile teamwork, cloud technologies, DevOps practices, and AI integrations while contributing to different teams and internal initiatives.",
+  },
+  {
+    timeline: "2022 - 2026",
+    role: "Vocational School",
+    company: "TBZ - Zurich",
+    employment: "Education",
+    text: "Currently completing my vocational education at TBZ, building a strong foundation in computer science and software engineering through coursework, projects, and practical training.",
+  },
 ];
 
 export default function Experience() {
+  return (
+    <section id="experience" className="p-[48px] bg-[#1c1c1c] text-white">
+      <div className="max-w-7xl mx-auto">
+        <AnimatedContent
+          distance={70}
+          direction="vertical"
+          reverse={false}
+          duration={0.8}
+          ease="power3.out"
+          initialOpacity={0.2}
+          animateOpacity
+          scale={1}
+          threshold={0.2}
+          delay={0}
+        >
+          <div className="min-h-[calc(100vh-96px)] pt-18">
+            <h1 className="text-5xl font-bold mb-12">Experience</h1>
 
-    return (
-        <section id="experience" className="p-[48px] bg-[#1c1c1c] text-white ">
-            <div className="max-w-7xl mx-auto">
-                <AnimatedContent
-                    distance={70}
-                    direction="vertical"
-                    reverse={false}
-                    duration={0.8}
-                    ease="power3.out"
-                    initialOpacity={0.2}
-                    animateOpacity
-                    scale={1}
-                    threshold={0.2}
-                    delay={0}
-                >
-                    <div className="min-h-[calc(100vh-96px)] pt-18">
-                        <h1 className="text-5xl font-bold mb-8">Experience</h1>
-                        <div>
-                            <p>
-
-                            </p>
-                        </div>
-                        <div>
-
-                        </div>
-                    </div>
-                </AnimatedContent>
+            <div className="space-y-12">
+              {experiences.map((exp) => (
+                <div key={`${exp.role}-${exp.company}`} className="flex gap-8">
+                  <div className="w-32 shrink-0 text-sm text-gray-400">
+                    {exp.timeline}
+                  </div>
+                  <div className="space-y-2">
+                    <h2 className="text-xl font-semibold text-white">
+                      {exp.role}
+                    </h2>
+                    <p className="text-sm text-gray-400">
+                      {exp.company} &middot; {exp.employment}
+                    </p>
+                    <p className="text-base text-gray-300 leading-7">
+                      {exp.text}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-        </section>
-    );
+          </div>
+        </AnimatedContent>
+      </div>
+    </section>
+  );
 }
