@@ -49,8 +49,8 @@ export default function Experience() {
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-18">
                         <h1 className="text-5xl font-bold mb-12">Experience</h1>
-                        <div className="flex flex-row">
-                            <div className="space-y-12 max-w-2xl">
+                        <div className="flex flex-row  justify-between items-start">
+                            <div className="space-y-12 max-w-3xl">
                                 {experiences.map((exp) => (
                                     <Highlighter
                                         key={`${exp.role}-${exp.company}`}
