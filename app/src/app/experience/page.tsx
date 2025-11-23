@@ -2,6 +2,7 @@
 import AnimatedContent from "@/components/AnimatedContent";
 import { Highlighter } from "@/components/ui/highlighter";
 import SpotlightCard from "@/components/SpotlightCard";
+import FloatingToolIcons from "@/components/FloatingToolIcons";
 
 const experiences = [
     {
@@ -95,6 +96,9 @@ export default function Experience() {
                                     </div>
                                 ))}
                             </div>
+                        </div>
+                        <div>
+                            <FloatingToolIcons />
                         </div>
                     </div>
                 </AnimatedContent>
