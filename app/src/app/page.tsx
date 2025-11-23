@@ -2,6 +2,7 @@
 import SplitText from "@/components/SplitText";
 import Experience from "./experience/page";
 import Projects from "./projects/page";
+import Contact from "./contact/page";
 import AnimatedContent from "@/components/AnimatedContent";
 import { Highlighter } from "@/components/ui/highlighter";
 
@@ -69,6 +70,7 @@ export default function Home() {
 
       <Experience />
       <Projects />
+      <Contact />
     </>
   );
 }
