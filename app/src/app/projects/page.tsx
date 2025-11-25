@@ -1,5 +1,6 @@
 import AnimatedContent from "@/components/AnimatedContent";
 import { Highlighter } from "@/components/ui/highlighter";
+import { LatestRepositories } from "./LatestRepositories";
 
 export default function Projects() {
     return (
@@ -18,13 +19,16 @@ export default function Projects() {
                     delay={0}
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-18">
-                        <h1 className="text-5xl font-bold mb-12">Projects</h1>
+                        <h1 className="text-5xl font-bold mb-8">Projects</h1>
                         <Highlighter
                             action="underline"
                             color="#0038ff"
                         >
-                            <h2 className="text-xl font-medium mb-2">My Latest Repositories</h2>
+                            <h2 className="text-xl font-medium mb-1">My Latest Repositories</h2>
                         </Highlighter>
+                        <div className="mt-8">
+                            <LatestRepositories />
+                        </div>
                     </div>
                 </AnimatedContent>
             </div>

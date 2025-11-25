@@ -33,7 +33,7 @@ export default function FloatingToolIcons() {
   return (
     <div
       ref={ref}
-      className="relative h-56 w-full overflow-visible pointer-events-none"
+      className="relative h-56 w-full overflow-visible pointer-events-none mt-18"
     >
       <div className="absolute inset-0">
         {tools.map((tool, index) => (
