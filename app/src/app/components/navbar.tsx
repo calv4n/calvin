@@ -6,11 +6,11 @@ import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Navbar() {
   const navItems = [
-    { name: "Experience", href: "#experience" },
+    { name: "Experience", href: "/#experience" },
     // { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-    { name: "Ask me", href: "#askme", underline: true },
+    { name: "Projects", href: "/#projects" },
+    { name: "Contact", href: "/#contact" },
+    { name: "Ask me", href: "/askme", underline: true },
   ];
 
   const brandName = "Calvin Pfrender";
