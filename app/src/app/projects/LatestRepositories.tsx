@@ -129,8 +129,13 @@ export function LatestRepositories() {
                         </p>
                     </div>
                 </div>
-                <div className="flex items-center gap-4 text-xs text-gray-400">
-                    {repo.languages?.length > 0 &&
+                <div className="flex flex-col items-start gap-3 text-xs text-gray-400">
+                    <div>
+                        <span>&#9733; {repo.stargazers_count} |</span>
+                        <span> Updated {formatDate(repo.updated_at)}</span>
+                    </div>
+                    <div className="flex gap-4">
+                        {repo.languages?.length > 0 &&
                         repo.languages.map((lang) => (
                             <span
                                 key={lang}
@@ -139,8 +144,8 @@ export function LatestRepositories() {
                                 {lang}
                             </span>
                         ))}
-                    <span>* {repo.stargazers_count}</span>
-                    <span>Updated {formatDate(repo.updated_at)}</span>
+                    </div>
+                    
                 </div>
             </a>
         ));
