@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import ShinyText from "@/components/ShinyText";
 
 type Repo = {
     id: number;
@@ -8,8 +9,8 @@ type Repo = {
     description: string | null;
     html_url: string;
     stargazers_count: number;
-    language: string | null;
     updated_at: string;
+    languages_url: string;
 };
 
 const githubUsername = "calv4n";
@@ -21,6 +22,8 @@ function formatDate(value: string) {
         day: "numeric",
     }).format(new Date(value));
 }
+
+type RepoWithLanguages = Repo & { languages: string[] };
 
 export function LatestRepositories() {
     const [repos, setRepos] = useState<Repo[]>([]);
@@ -54,7 +57,26 @@ export function LatestRepositories() {
                     )
                     .slice(0, 3);
 
-                setRepos(latest);
+                const latestWithLangs = await Promise.all(
+                    latest.map(async (repo) => {
+                        try {
+                            const langRes = await fetch(repo.languages_url);
+                            if (!langRes.ok) {
+                                return { ...repo, languages: [] as string[] };
+                            }
+                            const langObj = (await langRes.json()) as Record<string, number>;
+                            const sortedLangs = Object.entries(langObj)
+                                .sort((a, b) => b[1] - a[1])
+                                .map(([lang]) => lang)
+                                .slice(0, 3);
+                            return { ...repo, languages: sortedLangs };
+                        } catch {
+                            return { ...repo, languages: [] as string[] };
+                        }
+                    })
+                );
+
+                setRepos(latestWithLangs);
             } catch (error) {
                 console.warn("GitHub fetch failed; returning empty list.", error);
             } finally {
@@ -72,9 +94,12 @@ export function LatestRepositories() {
     const content = useMemo(() => {
         if (loading) {
             return (
-                <div className="col-span-full text-gray-400 text-sm">
-                    Loading repositories...
-                </div>
+                <ShinyText
+                    text="Loading repositories..."
+                    disabled={false}
+                    speed={2}
+                    className="col-span-full text-gray-400 text-sm"
+                />
             );
         }
 
@@ -86,7 +111,7 @@ export function LatestRepositories() {
             );
         }
 
-        return repos.map((repo) => (
+        return (repos as RepoWithLanguages[]).map((repo) => (
             <a
                 key={repo.id}
                 href={repo.html_url}
@@ -105,11 +130,15 @@ export function LatestRepositories() {
                     </div>
                 </div>
                 <div className="flex items-center gap-4 text-xs text-gray-400">
-                    {repo.language && (
-                        <span className="rounded-full bg-white/10 px-2 py-1 text-white">
-                            {repo.language}
-                        </span>
-                    )}
+                    {repo.languages?.length > 0 &&
+                        repo.languages.map((lang) => (
+                            <span
+                                key={lang}
+                                className="rounded-full bg-white/10 px-2 py-1 text-white"
+                            >
+                                {lang}
+                            </span>
+                        ))}
                     <span>* {repo.stargazers_count}</span>
                     <span>Updated {formatDate(repo.updated_at)}</span>
                 </div>
