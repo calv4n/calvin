@@ -4,7 +4,7 @@ import AnimatedContent from "@/components/AnimatedContent";
 
 export default function Askme() {
     return (
-        <section id="projects" className="p-[48px] bg-[#fff9f0]">
+        <section id="askme" className="p-[48px] bg-[#fff9f0]">
             <div className="max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}
@@ -19,7 +19,7 @@ export default function Askme() {
                     delay={0}
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-18">
-                        hello askme
+                        hello ask me page
                     </div>
                 </AnimatedContent>
             </div>
