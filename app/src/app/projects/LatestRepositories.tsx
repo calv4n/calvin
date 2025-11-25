@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import ShinyText from "@/components/ShinyText";
 
 type Repo = {
@@ -26,7 +26,7 @@ function formatDate(value: string) {
 type RepoWithLanguages = Repo & { languages: string[] };
 
 export function LatestRepositories() {
-    const [repos, setRepos] = useState<Repo[]>([]);
+    const [repos, setRepos] = useState<RepoWithLanguages[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -111,45 +111,78 @@ export function LatestRepositories() {
             );
         }
 
-        return (repos as RepoWithLanguages[]).map((repo) => (
-            <a
-                key={repo.id}
-                href={repo.html_url}
-                target="_blank"
-                rel="noreferrer"
-                className="block rounded-lg border border-white/10 bg-white/5 p-4 transition-transform duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
-            >
-                <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="space-y-1">
-                        <h3 className="text-lg font-semibold">
-                            {repo.name}
-                        </h3>
-                        <p className="text-sm text-gray-400">
-                            {repo.description || "No description available."}
-                        </p>
-                    </div>
+        return repos.map((repo) => <RepoCard3D key={repo.id} repo={repo} />);
+    }, [loading, repos]);
+
+    return <div className="grid gap-4 md:grid-cols-3">{content}</div>;
+}
+
+function RepoCard3D({ repo }: { repo: RepoWithLanguages }) {
+    const ref = useRef<HTMLAnchorElement>(null);
+    const [transform, setTransform] = useState(
+        "perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px)"
+    );
+
+    const handleMove = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        const el = ref.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const rotateY = (x - 0.5) * 6;
+        const rotateX = (0.5 - y) * 6;
+        setTransform(
+            `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`
+        );
+    };
+
+    const handleLeave = () => {
+        setTransform("perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px)");
+    };
+
+    return (
+        <a
+            ref={ref}
+            href={repo.html_url}
+            target="_blank"
+            rel="noreferrer"
+            onMouseMove={handleMove}
+            onMouseLeave={handleLeave}
+            className="relative block rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-white/30"
+            style={{
+                transform,
+                transformStyle: "preserve-3d",
+            }}
+        >
+            <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="space-y-1">
+                    <h3 className="text-lg font-semibold text-white">{repo.name}</h3>
+                    <p className="text-sm text-gray-400">
+                        {repo.description || "No description available."}
+                    </p>
                 </div>
-                <div className="flex flex-col items-start gap-3 text-xs text-gray-400">
-                    <div>
-                        <span>&#9733; {repo.stargazers_count} |</span>
-                        <span> Updated {formatDate(repo.updated_at)}</span>
-                    </div>
-                    <div className="flex gap-4">
-                        {repo.languages?.length > 0 &&
+            </div>
+            <div className="flex flex-col items-start gap-3 text-xs text-gray-300">
+                <div className="flex items-center gap-2">
+                    <span className="rounded-full border border-white/15 px-2 py-1 text-white">
+                        &#9733; {repo.stargazers_count}
+                    </span>
+                    <span className="rounded-full border border-white/15 px-2 py-1 text-white">
+                        Updated {formatDate(repo.updated_at)}
+                    </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                    {repo.languages?.length > 0 &&
                         repo.languages.map((lang) => (
                             <span
                                 key={lang}
-                                className="rounded-full bg-white/10 px-2 py-1 text-white"
+                                className="rounded-full border border-white/15 px-2 py-1 text-white"
                             >
                                 {lang}
                             </span>
                         ))}
-                    </div>
-                    
                 </div>
-            </a>
-        ));
-    }, [loading, repos]);
-
-    return <div className="grid gap-4 md:grid-cols-3">{content}</div>;
+            </div>
+        </a>
+    );
 }
