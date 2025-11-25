@@ -164,10 +164,10 @@ function RepoCard3D({ repo }: { repo: RepoWithLanguages }) {
             </div>
             <div className="flex flex-col items-start gap-3 text-xs text-gray-300">
                 <div className="flex items-center gap-2">
-                    <span className="rounded-full border border-white/15 px-2 py-1 text-white">
+                    <span className="rounded-full bg-white/10 px-2 py-1 text-white border border-white/10">
                         &#9733; {repo.stargazers_count}
                     </span>
-                    <span className="rounded-full border border-white/15 px-2 py-1 text-white">
+                    <span className="rounded-full bg-white/10 px-2 py-1 text-white border border-white/10">
                         Updated {formatDate(repo.updated_at)}
                     </span>
                 </div>
