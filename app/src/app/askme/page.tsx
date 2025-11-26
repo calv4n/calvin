@@ -8,8 +8,10 @@ const QUESTIONS = [
     "What do you do in your free time?",
 ];
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 async function ask(question: string) {
-  const res = await fetch("http://localhost:8000/ask", {
+  const res = await fetch(`${BASE_URL}/ask`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: question }),
