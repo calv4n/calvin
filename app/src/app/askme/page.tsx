@@ -8,6 +8,16 @@ const QUESTIONS = [
     "What do you do in your free time?",
 ];
 
+async function ask(question: string) {
+  const res = await fetch("http://localhost:8000/ask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: question }),
+  });
+  const data = await res.json();
+  return data.answer as string;
+}
+
 export default function Askme() {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [anchorToBottom, setAnchorToBottom] = useState(false);

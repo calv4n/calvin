@@ -2,17 +2,6 @@ import AnimatedContent from "@/components/AnimatedContent";
 import { Highlighter } from "@/components/ui/highlighter";
 import { LatestRepositories } from "./LatestRepositories";
 
-async function ask(question: string) {
-  const res = await fetch("http://localhost:8000/ask", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: question }),
-  });
-  const data = await res.json();
-  return data.answer as string;
-}
-
-
 export default function Projects() {
     return (
         <section id="projects" className="p-[48px] bg-[#1c1c1c] text-white pt-24">
