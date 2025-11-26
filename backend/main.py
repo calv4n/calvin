@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from openai import OpenAI
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
@@ -19,8 +20,8 @@ with open("profile.json", encoding="utf-8") as f:
     profile = json.load(f)
 
 SYSTEM_PROMPT = f"""
-Du bist {profile['name']}. Antworte kurz, freundlich und so, wie {profile['name']} spricht.
-Stichpunkte über dich:
+You are {profile['name']}. Answer briefly, friendly, professionally and in the way {profile['name']} speaks.
+Key points about you:
 {profile['bio']}
 """
 
@@ -28,6 +29,13 @@ class Question(BaseModel):
     message: str
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[os.getenv("BASE_URL")],  # your Frontend
+    allow_methods=["*"],                    # has OPTIONS
+    allow_headers=["*"],
+)
 
 @app.post("/ask")
 async def ask(q: Question):
