@@ -8,8 +8,6 @@ const QUESTIONS = [
     "What do you do in your free time?",
 ];
 
-const BUTTON_ANCHOR_THRESHOLD = 140; // px height at which the action button sticks to the bottom
-
 export default function Askme() {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [anchorToBottom, setAnchorToBottom] = useState(false);
@@ -19,7 +17,7 @@ export default function Askme() {
         if (!target) return;
         target.style.height = "auto";
         target.style.height = `${target.scrollHeight}px`;
-        setAnchorToBottom(target.scrollHeight > BUTTON_ANCHOR_THRESHOLD);
+        setAnchorToBottom(target.scrollHeight > 26);
     }, []);
 
     useEffect(() => {
