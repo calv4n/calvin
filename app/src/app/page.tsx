@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   const subtitleText =
-    "Swiss developer based near Zurich finishing his apprenticeship.";
+    "Swiss software developer based near Zurich finishing his apprenticeship.";
   const textFirst =
     "Building and maintaining web applications and internal automations at SIX, focused on clarity, reliability, and best practices.";
 
@@ -56,7 +56,7 @@ export default function Home() {
                   <br />
                   <p>
                     Constantly{" "}
-                    <Highlighter action="highlight" color="#ffc700">
+                    <Highlighter action="highlight" color="#ffc700" animationDuration={1400}>
                       improving
                     </Highlighter>{" "}
                     myself, both as a developer and as a person.

@@ -3,6 +3,7 @@ import AnimatedContent from "@/components/AnimatedContent";
 import { Highlighter } from "@/components/ui/highlighter";
 import SpotlightCard from "@/components/SpotlightCard";
 import FloatingToolIcons from "@/components/FloatingToolIcons";
+import { px } from "framer-motion";
 
 const experiences = [
     {
@@ -53,28 +54,22 @@ export default function Experience() {
                         <div className="flex flex-row  justify-between items-start">
                             <div className="space-y-12 max-w-3xl">
                                 {experiences.map((exp) => (
-                                    <Highlighter
-                                        key={`${exp.role}-${exp.company}`}
-                                        action="bracket"
-                                        color="#0038ff"
-                                    >
-                                        <div className="flex gap-8 mr-12">
-                                            <div className="w-32 shrink-0 text-sm text-gray-400">
-                                                {exp.timeline}
-                                            </div>
-                                            <div className="space-y-2">
-                                                <h2 className="text-xl font-semibold text-white">
-                                                    {exp.role}
-                                                </h2>
-                                                <p className="text-sm text-gray-400">
-                                                    {exp.company} &middot; {exp.employment}
-                                                </p>
-                                                <p className="text-base text-gray-300 leading-7">
-                                                    {exp.text}
-                                                </p>
-                                            </div>
+                                    <div key={`${exp.role}-${exp.company}`} className="flex gap-8 mr-12">
+                                        <div className="w-32 shrink-0 text-sm text-gray-400">
+                                            {exp.timeline}
                                         </div>
-                                    </Highlighter>
+                                        <div className="space-y-2">
+                                            <h2 className="text-xl font-semibold text-white">
+                                                {exp.role}
+                                            </h2>
+                                            <p className="text-sm text-gray-400">
+                                                {exp.company} &middot; {exp.employment}
+                                            </p>
+                                            <p className="text-base text-gray-300 leading-7">
+                                                {exp.text}
+                                            </p>
+                                        </div>
+                                    </div>
                                 ))}
                             </div>
                             <div>
