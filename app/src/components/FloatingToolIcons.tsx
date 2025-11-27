@@ -27,7 +27,7 @@ export default function FloatingToolIcons() {
   });
 
   // Move icons upward and add a stronger rotation while scrolling past the strip.
-  const translateY = useTransform(scrollYProgress, [0, 1], [130, -300]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [70, -150]);
   const rotate = useTransform(scrollYProgress, [0, 1], [-26, 54]);
 
   return (
