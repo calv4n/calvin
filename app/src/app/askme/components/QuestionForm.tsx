@@ -18,6 +18,12 @@ export default function QuestionForm({
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [anchorToBottom, setAnchorToBottom] = useState(false);
 
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
+        event.preventDefault();
+        if (!loading) onSubmit();
+    };
+
     const syncHeight = useCallback((element?: HTMLTextAreaElement) => {
         const target = element ?? textareaRef.current;
         if (!target) return;
@@ -48,6 +54,7 @@ export default function QuestionForm({
                             onQuestionChange(event.currentTarget.value);
                             syncHeight(event.currentTarget);
                         }}
+                        onKeyDown={handleKeyDown}
                     />
                 </div>
             </form>
