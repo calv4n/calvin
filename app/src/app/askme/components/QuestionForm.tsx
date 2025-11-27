@@ -18,10 +18,16 @@ export default function QuestionForm({
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [anchorToBottom, setAnchorToBottom] = useState(false);
 
+    const handleSubmit = () => {
+        if (loading) return;
+        onSubmit();
+        onQuestionChange("");
+    };
+
     const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
         event.preventDefault();
-        if (!loading) onSubmit();
+        handleSubmit();
     };
 
     const syncHeight = useCallback((element?: HTMLTextAreaElement) => {
@@ -61,7 +67,7 @@ export default function QuestionForm({
             <button
                 type="button"
                 style={buttonStyle}
-                onClick={onSubmit}
+                onClick={handleSubmit}
                 disabled={loading}
                 className="absolute cursor-pointer right-3 inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-gradient-to-br from-[#1c1c1c] to-[#2d2d2d] text-white shadow-[0_10px_30px_rgba(0,0,0,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/60 disabled:opacity-60"
             >
