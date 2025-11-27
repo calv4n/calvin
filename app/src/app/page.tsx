@@ -56,7 +56,7 @@ export default function Home() {
                   <br />
                   <p>
                     Constantly{" "}
-                    <Highlighter action="highlight" color="#ffc700" animationDuration={1400}>
+                    <Highlighter action="highlight" color="#ffc700" animationDuration={1400} isView={true}>
                       improving
                     </Highlighter>{" "}
                     myself, both as a developer and as a person.

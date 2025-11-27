@@ -29,6 +29,8 @@ export default function Projects() {
                             <Highlighter
                                 action="underline"
                                 color="#0038ff"
+                                isView={true}
+                                animationDuration={1400}
                             >
                                 <h2 className="text-xl font-medium mb-1">My Latest Repositories</h2>
                             </Highlighter>

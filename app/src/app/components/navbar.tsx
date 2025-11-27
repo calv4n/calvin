@@ -26,7 +26,7 @@ export default function Navbar() {
             >
               <Link href={href}>
                 {underline ? (
-                  <Highlighter action="underline" color="#0038ff">
+                  <Highlighter action="underline" color="#0038ff" animationDuration={1400}>
                     {name}
                   </Highlighter>
                 ) : (
