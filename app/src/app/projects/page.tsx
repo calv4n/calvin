@@ -20,15 +20,23 @@ export default function Projects() {
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-18">
                         <h1 className="text-5xl font-bold mb-8">Projects</h1>
-                        <Highlighter
-                            action="underline"
-                            color="#0038ff"
-                        >
-                            <h2 className="text-xl font-medium mb-1">My Latest Repositories</h2>
-                        </Highlighter>
-                        <div className="mt-8">
-                            <LatestRepositories />
+                        <div className="h-[400px]">
+                            <div className="mt-8  text-xl font-medium mb-12">
+                                More Projects coming soon... 💫
+                            </div>
                         </div>
+                        <div>
+                            <Highlighter
+                                action="underline"
+                                color="#0038ff"
+                            >
+                                <h2 className="text-xl font-medium mb-1">My Latest Repositories</h2>
+                            </Highlighter>
+                            <div className="mt-8">
+                                <LatestRepositories />
+                            </div>
+                        </div>
+
                     </div>
                 </AnimatedContent>
             </div>
