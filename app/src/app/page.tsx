@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <section id="home" className="p-[48px] bg-[#fff9f0]">
         <div className="max-w-7xl mx-auto">
-          <header className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 gap-6 md:gap-12">
+          <header className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 pt-16 gap-6 md:gap-12">
             <div className="flex flex-col items-start">
               <SplitText text="Calvin" {...splitTextProps} />
               <SplitText text="Pfrender" {...splitTextProps} />
