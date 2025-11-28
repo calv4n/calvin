@@ -51,10 +51,10 @@ export default function Experience() {
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-18">
                         <h1 className="text-5xl font-bold mb-12">Experience</h1>
-                        <div className="flex flex-col md:flex-row justify-between items-start">
+                        <div className="flex flex-col lg:flex-row justify-between items-start">
                             <div className="space-y-12 max-w-3xl">
                                 {experiences.map((exp) => (
-                                    <div key={`${exp.role}-${exp.company}`} className="flex gap-4 md:gap-8 mr-0 md:mr-12 flex-col md:flex-row">
+                                    <div key={`${exp.role}-${exp.company}`} className="flex gap-4 lg:gap-8 mr-0 lg:mr-12 flex-col lg:flex-row">
                                         <div className="w-32 shrink-0 text-sm text-gray-400">
                                             {exp.timeline}
                                         </div>
@@ -72,11 +72,11 @@ export default function Experience() {
                                     </div>
                                 ))}
                             </div>
-                            <div className="mt-10 md:mt-0">
+                            <div className="mt-10 lg:mt-0 flex flex-col md:flex-row lg:flex-col gap-8 w-full">
                                 {skillscardData.map((card, index) => (
-                                    <div key={card.title} className="ml-0 md:ml-20 mt-0 mb-5">
-                                        <SpotlightCard className="w-[300px] md:w-[350px]" spotlightColor="rgba(0, 56, 255, 0.2)">
-                                            <div className="flex flex-row justify-between items-start w-full gap-4">
+                                    <div key={card.title} className="ml-0 lg:ml-20 mt-0s">
+                                        <SpotlightCard className="w-full md:w-[315px] lg:w-[350px]" spotlightColor="rgba(0, 56, 255, 0.2)">
+                                            <div className="flex flex-row justify-between items-start gap-4">
                                                 <h3 className="text-lg font-semibold mb-4">{card.title}</h3>
                                                 <p className="font-mono text-lg text-gray-400">{index}</p>
                                             </div>
