@@ -8,7 +8,7 @@ import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Home() {
   const splitTextProps = {
-    className: "text-8xl md:text-9xl text-center font-[Bdogrotesk] font-[1000]",
+    className: "text-7xl sm:text-8xl md:text-9xl text-center font-[Bdogrotesk] font-[1000]",
     delay: 75,
     duration: 0.5,
     ease: "power3.out" as const,
@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <section id="home" className="p-[48px] bg-[#fff9f0]">
         <div className="max-w-7xl mx-auto">
-          <header className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 gap-12">
+          <header className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 gap-6 md:gap-12">
             <div className="flex flex-col items-start">
               <SplitText text="Calvin" {...splitTextProps} />
               <SplitText text="Pfrender" {...splitTextProps} />
@@ -47,11 +47,11 @@ export default function Home() {
               threshold={0.2}
               delay={0}
             >
-              <div className="w-full flex flex-col md:flex-row gap-10 md:gap-24">
-                <div className="text-3xl font-medium max-w-xl">
+              <div className="w-[75%] flex flex-col md:flex-row gap-7 md:gap-14">
+                <div className="text-xl sm:text-2xl md:text-3xl font-medium max-w-xl">
                   <p>{subtitleText}</p>
                 </div>
-                <div className="hidden md:block text-sm text-gray-700 font-medium">
+                <div className=" text-sm text-gray-700 font-medium">
                   <p>{textFirst}</p>
                   <br />
                   <p>
