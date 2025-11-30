@@ -1,26 +1,44 @@
 "use client";
 
+type ChatMessage = { role: "user" | "assistant" | "error"; text: string };
+
 type AnswerPanelProps = {
-    answer: string | null;
-    error: string | null;
+    messages: ChatMessage[];
 };
 
-export default function AnswerPanel({ answer, error }: AnswerPanelProps) {
-    if (!answer && !error) return null;
+export default function AnswerPanel({ messages }: AnswerPanelProps) {
+    if (!messages.length) return null;
 
     return (
-        <div className="max-w-[450px] md:w-1/2 flex flex-col">
-            {answer && (
-                <div className="mb-4 text-sm text-gray-800 bg-white/80 p-3 pr-4 pl-4 rounded-tl-4xl rounded-tr-4xl rounded-bl-4xl rounded-br-md border shadow-[0_12px_40px_rgba(0,0,0,0.08)] ">
-                    <p className="leading-relaxed whitespace-pre-line">{answer}</p>
-                </div>
-            )}
-            {error && (
-                <div className="mb-4 text-sm text-red-600">
-                    <p className="font-semibold mb-1">Error:</p>
-                    <p className="leading-relaxed">{error}</p>
-                </div>
-            )}
+        <div className="w-full max-w-2xl flex flex-col gap-3 mb-6">
+            {messages.map((message, index) => {
+                if (message.role === "user") {
+                    return (
+                        <div
+                            key={`${message.role}-${index}`}
+                            className="self-end max-w-[85%] rounded-3xl rounded-br-md bg-white/90 text-[#0f0f0f] text-sm sm:text-base px-4 py-3 shadow-[0_10px_28px_rgba(0,0,0,0.08)]"
+                        >
+                            <p className="leading-relaxed break-words whitespace-pre-wrap">{message.text}</p>
+                        </div>
+                    );
+                }
+                if (message.role === "error") {
+                    return (
+                        <div key={`${message.role}-${index}`} className="text-sm text-red-600">
+                            <p className="font-semibold">Error:</p>
+                            <p className="leading-relaxed">{message.text}</p>
+                        </div>
+                    );
+                }
+                return (
+                    <p
+                        key={`${message.role}-${index}`}
+                        className="text-sm sm:text-base leading-relaxed text-[#0f0f0f] whitespace-pre-wrap"
+                    >
+                        {message.text}
+                    </p>
+                );
+            })}
         </div>
     );
 }

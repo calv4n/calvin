@@ -14,20 +14,20 @@ const QUESTIONS = [
 
 export default function Askme() {
     const [question, setQuestion] = useState("");
-    const [answer, setAnswer] = useState<string | null>(null);
+    const [messages, setMessages] = useState<{ role: "user" | "assistant" | "error"; text: string }[]>([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
 
     const handleAsk = useCallback(async () => {
         if (!question.trim()) return;
+        const currentQuestion = question.trim();
+        setMessages((prev) => [...prev, { role: "user", text: currentQuestion }]);
         setLoading(true);
-        setError(null);
         try {
-            const result = await askQuestion(question.trim());
-            setAnswer(result);
+            const result = await askQuestion(currentQuestion);
+            setMessages((prev) => [...prev, { role: "assistant", text: result }]);
         } catch (err) {
-            setError(err instanceof Error ? err.message : "Something went wrong.");
-            setAnswer(null);
+            const message = err instanceof Error ? err.message : "Something went wrong.";
+            setMessages((prev) => [...prev, { role: "error", text: message }]);
         } finally {
             setLoading(false);
         }
@@ -53,7 +53,7 @@ export default function Askme() {
                     delay={0}
                 >
                     <div className="min-h-[calc(100vh-48px)] sm:min-h-[calc(100vh-96px)] pt-18 flex items-center justify-center flex-col px-2">
-                        <AnswerPanel answer={answer} error={error} />
+                        <AnswerPanel messages={messages} />
                         <div className="relative w-full max-w-2xl rounded-[28px] border bg-white/85 px-5 sm:px-7 py-4 sm:py-5 mb-5 text-l placeholder:text-gray-400 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <QuestionForm
                                 question={question}
