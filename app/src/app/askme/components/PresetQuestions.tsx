@@ -7,15 +7,16 @@ type PresetQuestionsProps = {
 
 export default function PresetQuestions({ questions, onSelect }: PresetQuestionsProps) {
     return (
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
-            {questions.map((questionText, index) => (
-                <div
-                    key={index}
-                    className="cursor-pointer w-[300px] rounded-[12px] border bg-white/80 px-3 py-3 text-sm shadow-[0_12px_40px_rgba(0,0,0,0.08)] text-center"
+        <div className="flex flex-wrap justify-center gap-3 mt-2">
+            {questions.map((questionText) => (
+                <button
+                    key={questionText}
+                    type="button"
                     onClick={() => onSelect(questionText)}
+                    className="group inline-flex items-center gap-2 rounded-full border border-[#1c1c1c]/10 bg-white/90 px-4 py-2 text-xs sm:text-sm font-medium text-[#1c1c1c] shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition hover:-translate-y-[2px] hover:border-[#0038ff]/30 hover:shadow-[0_12px_26px_rgba(0,56,255,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0038ff]"
                 >
-                    {questionText}
-                </div>
+                    <span className="text-left">{questionText}</span>
+                </button>
             ))}
         </div>
     );
