@@ -19,7 +19,7 @@ export default function Navbar() {
   const brandName = "Calvin Pfrender";
 
   return (
-    <nav className="fixed top-0 left-0 w-full p-[24px] sm:p-[32px] z-50 text-white mix-blend-difference">
+    <nav className="fixed top-0 left-0 w-full p-[24px] sm:p-[32px] z-50 text-white bg-[mix-blend-difference]/70 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="text-sm font-bold sm:font-medium tracking-tight">
           <Link href="/#home">{brandName}</Link>
