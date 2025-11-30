@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { Highlighter } from "@/components/ui/highlighter";
@@ -9,7 +9,11 @@ import { Highlighter } from "@/components/ui/highlighter";
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [navTheme, setNavTheme] = useState<"light" | "dark">("light");
+  const [navTheme, setNavTheme] = useState<"light" | "dark">(() => {
+    if (!pathname) return "light";
+    if (pathname.startsWith("/projects") || pathname.startsWith("/experience")) return "dark";
+    return "light";
+  });
 
   const navItems = [
     { name: "Experience", href: "/#experience" },
@@ -21,7 +25,7 @@ export default function Navbar() {
 
   const brandName = "Calvin Pfrender";
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const themedSections = Array.from(
       document.querySelectorAll<HTMLElement>("[data-nav-theme]")
     );
