@@ -4,7 +4,7 @@ import { LatestRepositories } from "./LatestRepositories";
 
 export default function Projects() {
     return (
-        <section id="projects" className="px-[24px] sm:px-[48px] bg-[#1c1c1c] text-white">
+        <section id="projects" data-nav-theme="dark" className="px-[24px] sm:px-[48px] bg-[#1c1c1c] text-white">
             <div className="max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}

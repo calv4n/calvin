@@ -35,7 +35,7 @@ const skillscardData = [
 
 export default function Experience() {
     return (
-        <section id="experience" className="p-[24px] sm:p-[48px] bg-[#1c1c1c] text-white pt-24 pb-0">
+        <section id="experience" data-nav-theme="dark" className="p-[24px] sm:p-[48px] bg-[#1c1c1c] text-white pt-24 sm:pt-48 pb-0">
             <div className="max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}

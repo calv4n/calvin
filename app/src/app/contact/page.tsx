@@ -5,6 +5,7 @@ export default function Projects() {
     return (
         <section
             id="contact"
+            data-nav-theme="dark"
             className="relative overflow-hidden bg-[#fff9f0] text-black px-[0px] sm:px-[48px]"
         >
             <div className="pointer-events-none select-none absolute inset-0 overflow-hidden">
@@ -25,7 +26,7 @@ export default function Projects() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(96vh)] pt-56 md:pt-60">
+                    <div className="min-h-[calc(96vh)] pt-48 md:pt-60">
                         <div className="flex flex-col items-center md:items-start">
                             <div>
                                 <h1 className="text-5xl md:text-8xl m-5 font-[Bdogrotesk-Mono]">LET'S BUILD</h1>
