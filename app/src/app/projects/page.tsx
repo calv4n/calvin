@@ -18,7 +18,7 @@ export default function Projects() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-96px)]">
+                    <div className="min-h-[calc(100vh-96px)] pt-0 sm:pt-32">
                         <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold mb-8">Projects</h1>
                         <div className="h-[400px]">
                             <div className="mt-8  text-xl font-medium mb-12">
