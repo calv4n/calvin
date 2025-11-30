@@ -36,6 +36,11 @@ export default function Askme() {
     }, [question]);
 
     useEffect(() => {
+        document.body.classList.add("hide-footer");
+        return () => document.body.classList.remove("hide-footer");
+    }, []);
+
+    useEffect(() => {
         if (!hasMessages) return;
         answerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, [hasMessages, messages]);
