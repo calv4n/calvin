@@ -38,7 +38,7 @@ export default function Projects() {
                                 </Highlighter>
                             </div>
                         </div>
-                        <div className="flex flex-col md:flex-row gap-5 md:gap-32 items-center md:items-start mt-4 md:mt-12">
+                        <div className="flex flex-col md:flex-row gap-5 md:gap-32 items-center md:items-start mt-4 md:mt-12 ml-0 md:ml-12">
                             <div className="text-center md:text-start">
                                 <p className="pt-2 text-base md:text-lg text-gray-700">Interested in my work? Let's connect!</p>
                                 <a
