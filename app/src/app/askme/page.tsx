@@ -52,9 +52,9 @@ export default function Askme() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-48px)] sm:min-h-[calc(100vh-96px)] pt-18 flex items-center justify-center flex-col">
+                    <div className="min-h-[calc(100vh-48px)] sm:min-h-[calc(100vh-96px)] pt-18 flex items-center justify-center flex-col px-2">
                         <AnswerPanel answer={answer} error={error} />
-                        <div className="relative w-[300px] md:w-1/2 rounded-[28px] border bg-white/80 px-7 py-5 mb-5 text-l placeholder:text-gray-400 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+                        <div className="relative w-full max-w-2xl rounded-[28px] border bg-white/85 px-5 sm:px-7 py-4 sm:py-5 mb-5 text-l placeholder:text-gray-400 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <QuestionForm
                                 question={question}
                                 onQuestionChange={setQuestion}

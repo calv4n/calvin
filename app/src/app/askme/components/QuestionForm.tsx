@@ -48,12 +48,16 @@ export default function QuestionForm({
 
     return (
         <>
-            <form className="space-y-3" onSubmit={(event) => event.preventDefault()}>
+            <form className="space-y-2 sm:space-y-3" onSubmit={(event) => event.preventDefault()}>
                 <div className="relative group">
+                    <label className="sr-only" htmlFor="askme-question">
+                        Ask a question
+                    </label>
                     <textarea
+                        id="askme-question"
                         ref={textareaRef}
                         placeholder="Ask anything about me..."
-                        className="block outline-none w-full bg-transparent resize-none overflow-hidden leading-relaxed pr-16"
+                        className="block w-full bg-transparent resize-none overflow-hidden leading-relaxed pr-16 sm:pr-20 text-sm sm:text-base text-[#0f0f0f] placeholder:text-gray-400 outline-none"
                         rows={1}
                         value={question}
                         onInput={(event) => {
@@ -69,10 +73,10 @@ export default function QuestionForm({
                 style={buttonStyle}
                 onClick={handleSubmit}
                 disabled={loading}
-                className="absolute cursor-pointer right-3 inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-gradient-to-br from-[#1c1c1c] to-[#2d2d2d] text-white shadow-[0_10px_30px_rgba(0,0,0,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/60 disabled:opacity-60"
+                className="absolute cursor-pointer right-2 sm:right-3 inline-flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-[20px] sm:rounded-[14px] sm:rounded-[18px] bg-gradient-to-br from-[#1c1c1c] to-[#2d2d2d] text-white shadow-[0_10px_30px_rgba(0,0,0,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/60 disabled:opacity-60"
             >
-                <span className="material-symbols-outlined text-[26px] leading-none">
-                    {loading ? "schedule" : "arrow_upward"}
+                <span className={`material-symbols-outlined text-[24px] sm:text-[26px] leading-none ${loading ? "animate-spin" : ""}`}>
+                    {loading ? "progress_activity" : "arrow_upward"}
                 </span>
             </button>
         </>
