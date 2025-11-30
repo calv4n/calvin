@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <section id="home" className="p-[24px] sm:p-[48px] bg-[#fff9f0]">
         <div className="max-w-7xl mx-auto">
-          <header className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 pt-16 gap-6 md:gap-12">
+          <div className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 pt-16 gap-6 md:gap-12">
             <div className="flex flex-col items-start">
               <SplitText text="Calvin" {...splitTextProps} />
               <SplitText text="Pfrender" {...splitTextProps} />
@@ -64,7 +64,8 @@ export default function Home() {
                 </div>
               </div>
             </AnimatedContent>
-          </header>
+          </div>
+          <a href="#experience" className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-700 opacity-50 text-xs uppercase tracking-[0.2em]">scroll</a>
         </div>
       </section>
 
