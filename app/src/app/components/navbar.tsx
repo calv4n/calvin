@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full p-[24px] sm:p-[32px] z-50 text-white mix-blend-difference">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="text-sm font-medium tracking-tight">
+        <div className="text-sm font-bold sm:font-medium tracking-tight">
           <Link href="/#home">{brandName}</Link>
         </div>
 
