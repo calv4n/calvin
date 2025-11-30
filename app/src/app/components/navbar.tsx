@@ -64,7 +64,7 @@ export default function Navbar() {
       </div>
 
       <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0"}`}>
-        <div className="mt-4 rounded-2xl border border-white/10 bg-black/40 px-4 py-5 backdrop-blur-xl shadow-2xl shadow-black/20">
+        <div className="mt-4 rounded-2xl border border-white/30 bg-white/80 px-4 py-5 backdrop-blur-xl shadow-2xl shadow-black/10 text-black">
           <ul className="flex flex-col space-y-4 text-sm font-medium">
             {navItems.map(({ name, href, underline }) => (
               <li key={name}>
@@ -73,7 +73,7 @@ export default function Navbar() {
                     <Link
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 transition hover:bg-white/5"
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 transition hover:bg-black/5"
                     >
                       <span>{name}</span>
                     </Link>
@@ -82,7 +82,7 @@ export default function Navbar() {
                   <Link
                     href={href}
                     onClick={() => setIsOpen(false)}
-                    className="flex w-full items-center justify-between rounded-lg px-3 py-2 transition hover:bg-white/5"
+                    className="flex w-full items-center justify-between rounded-lg px-3 py-2 transition hover:bg-black/5"
                   >
                     <span>{name}</span>
                   </Link>
