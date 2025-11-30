@@ -49,7 +49,7 @@ export default function Experience() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-96px)] pt-18">
+                    <div className="min-h-[calc(100vh-96px)] pt-0 sm:pt-18">
                         <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold mb-12">Experience</h1>
                         <div className="flex flex-col lg:flex-row justify-between items-start">
                             <div className="space-y-12 max-w-3xl">
