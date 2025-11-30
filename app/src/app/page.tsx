@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <section id="home" className="p-[24px] sm:p-[48px] bg-[#fff9f0]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-48 pt-16 gap-6 md:gap-12">
+          <div className="flex flex-col items-start min-h-[calc(100vh-96px)] justify-end pb-32 pt-16 gap-6 md:gap-12">
             <div className="flex flex-col items-start">
               <SplitText text="Calvin" {...splitTextProps} />
               <SplitText text="Pfrender" {...splitTextProps} />
@@ -47,11 +47,11 @@ export default function Home() {
               threshold={0.2}
               delay={0}
             >
-              <div className="w-[75%] flex flex-col md:flex-row gap-7 md:gap-14">
+              <div className="w-[75%] flex flex-col md:flex-row gap-3 md:gap-14">
                 <div className="text-xl sm:text-2xl md:text-3xl font-medium max-w-xl">
                   <p>{subtitleText}</p>
                 </div>
-                <div className=" text-sm text-gray-700 font-medium">
+                <div className=" text-sm text-gray-700 font-medium hidden sm:block">
                   <p>{textFirst}</p>
                   <br />
                   <p>
@@ -61,6 +61,19 @@ export default function Home() {
                     </Highlighter>{" "}
                     myself, both as a developer and as a person.
                   </p>
+                </div>
+                <div>
+                  <p className="block sm:hidden py-4 text-gray-700 opacity-50">WORKING @ SIX GROUP</p>
+                  <a 
+                    href="#experience"
+                    className="block sm:hidden text-white Bdogrotesk-Title bg-[#1c1c1c] p-4.5 rounded-4xl w-40 text-center font-semibold "
+                    >
+                      About Me 
+                      <p 
+                        className="material-symbols-outlined rotate-180 align-middle ml-2 inline-block">
+                          arrow_insert
+                      </p>
+                  </a>
                 </div>
               </div>
             </AnimatedContent>
