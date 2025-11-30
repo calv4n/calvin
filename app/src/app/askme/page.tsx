@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import AnimatedContent from "@/components/AnimatedContent";
 import AnswerPanel from "./components/AnswerPanel";
 import QuestionForm from "./components/QuestionForm";
@@ -16,6 +16,8 @@ export default function Askme() {
     const [question, setQuestion] = useState("");
     const [messages, setMessages] = useState<{ role: "user" | "assistant" | "error"; text: string }[]>([]);
     const [loading, setLoading] = useState(false);
+    const answerRef = useRef<HTMLDivElement | null>(null);
+    const hasMessages = messages.length > 0;
 
     const handleAsk = useCallback(async () => {
         if (!question.trim()) return;
@@ -32,6 +34,11 @@ export default function Askme() {
             setLoading(false);
         }
     }, [question]);
+
+    useEffect(() => {
+        if (!hasMessages) return;
+        answerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, [hasMessages, messages]);
 
     const handlePreset = useCallback((preset: string) => {
         setQuestion(preset);
@@ -52,17 +59,30 @@ export default function Askme() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-48px)] sm:min-h-[calc(100vh-96px)] pt-18 flex items-center justify-center flex-col px-2">
-                        <AnswerPanel messages={messages} />
-                        <div className="relative w-full max-w-2xl rounded-[28px] border bg-white/85 px-5 sm:px-7 py-4 sm:py-5 mb-5 text-l placeholder:text-gray-400 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
-                            <QuestionForm
-                                question={question}
-                                onQuestionChange={setQuestion}
-                                onSubmit={handleAsk}
-                                loading={loading}
-                            />
+                    <div
+                        className={`min-h-[calc(100vh-48px)] sm:min-h-[calc(100vh-96px)] pt-18 flex flex-col px-2 gap-4 sm:gap-6 ${
+                            hasMessages ? "" : "items-center justify-center"
+                        }`}
+                    >
+                        <div ref={answerRef} className="w-full flex justify-center">
+                            <AnswerPanel messages={messages} />
                         </div>
-                        <PresetQuestions questions={QUESTIONS} onSelect={handlePreset} />
+
+                        <div
+                            className={`w-full flex flex-col items-center gap-3 ${
+                                hasMessages ? "mt-auto pb-4 sm:pb-6" : ""
+                            }`}
+                        >
+                            <div className="relative w-full max-w-2xl rounded-[28px] border bg-white/85 px-5 sm:px-7 py-4 sm:py-5 text-l placeholder:text-gray-400 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+                                <QuestionForm
+                                    question={question}
+                                    onQuestionChange={setQuestion}
+                                    onSubmit={handleAsk}
+                                    loading={loading}
+                                />
+                            </div>
+                            <PresetQuestions questions={QUESTIONS} onSelect={handlePreset} />
+                        </div>
                     </div>
                 </AnimatedContent>
             </div>
