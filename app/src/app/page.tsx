@@ -78,7 +78,7 @@ export default function Home() {
               </div>
             </AnimatedContent>
           </div>
-          <a href="#experience" className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-700 opacity-50 text-xs uppercase tracking-[0.2em]">scroll</a>
+          <a href="#experience" className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-gray-700 opacity-50 text-xs uppercase tracking-[0.2em]">scroll</a>
         </div>
       </section>
 
