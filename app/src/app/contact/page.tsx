@@ -26,7 +26,7 @@ export default function Projects() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(96vh)] pt-48 md:pt-60">
+                    <div className="min-h-[calc(86vh)] pt-48 md:pt-60">
                         <div className="flex flex-col items-center md:items-start">
                             <div>
                                 <h1 className="text-5xl md:text-8xl m-5 font-[Bdogrotesk-Mono]">LET'S BUILD</h1>
@@ -38,6 +38,39 @@ export default function Projects() {
                                 </Highlighter>
                             </div>
                         </div>
+                        <div className="flex flex-col md:flex-row gap-5 md:gap-32 items-center md:items-start mt-4 md:mt-12">
+                            <div className="text-center md:text-start">
+                                <p className="pt-2 text-base md:text-lg text-gray-700">Interested in my work? Let's connect!</p>
+                                <a
+                                    href="mailto:calvin.pfrender@gmail.com"
+                                    className="inline-flex items-center justify-center gap-3 mt-6 md:mt-8 px-6 py-3 rounded-full bg-[#1c1c1c] text-white text-sm font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition hover:translate-y-[-2px] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c1c1c]"
+                                >
+                                    <span className="material-symbols-outlined text-base">mail</span>
+                                    calvin.pfrender@gmail.com
+                                </a>
+                            </div>
+                            <div className="flex flex-row md:flex-col gap-3">
+                                <a
+                                    href="https://github.com/calv4n"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#1c1c1c] text-[#1c1c1c] text-sm font-semibold bg-white transition hover:-translate-y-[2px] hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c1c1c]"
+                                >
+                                    <span className="material-symbols-outlined text-base">code</span>
+                                    GitHub
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/calvin-pfrender-05aaa3274/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#0a66c2] text-white text-sm font-semibold transition hover:-translate-y-[2px] hover:shadow-[0_10px_24px_rgba(0,0,0,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0a66c2]"
+                                >
+                                    <span className="material-symbols-outlined text-base">group</span>
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </AnimatedContent>
             </div>
