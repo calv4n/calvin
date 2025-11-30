@@ -43,7 +43,7 @@ export default function FloatingToolIcons() {
             style={{ left: tool.x, top: tool.y, rotate, y: translateY }}
           >
             <motion.div
-              className={`relative flex h-[92px] w-[92px] items-center justify-center overflow-hidden rounded-2xl shadow-xl shadow-black/25 ring-2 ring-white/10 text-base font-semibold ${tool.bg}`}
+              className={`relative flex h-18 w-18 sm:h-[92px] sm:w-[92px] items-center justify-center overflow-hidden rounded-2xl shadow-xl shadow-black/25 ring-2 ring-white/10 text-sm sm:text-base font-semibold ${tool.bg}`}
               style={{ rotate: `${tool.tilt}deg` }}
               initial={{ scale: 0.9, opacity: 0.7 }}
               whileInView={{
