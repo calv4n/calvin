@@ -35,7 +35,7 @@ const skillscardData = [
 
 export default function Experience() {
     return (
-        <section id="experience" className="p-[48px] bg-[#1c1c1c] text-white pt-24 pb-0">
+        <section id="experience" className="p-[24px] sm:p-[48px] bg-[#1c1c1c] text-white pt-24 pb-0">
             <div className="max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}
@@ -50,7 +50,7 @@ export default function Experience() {
                     delay={0}
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-18">
-                        <h1 className="text-5xl font-bold mb-12">Experience</h1>
+                        <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold mb-12">Experience</h1>
                         <div className="flex flex-col lg:flex-row justify-between items-start">
                             <div className="space-y-12 max-w-3xl">
                                 {experiences.map((exp) => (

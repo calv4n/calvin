@@ -38,7 +38,7 @@ export default function Askme() {
     }, []);
 
     return (
-        <section id="askme" className="p-[48px] bg-[#fff9f0]">
+        <section id="askme" className="p-[24px] sm:p-[48px] bg-[#fff9f0]">
             <div className="max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}
@@ -52,7 +52,7 @@ export default function Askme() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-96px)] pt-18 flex items-center justify-center flex-col">
+                    <div className="min-h-[calc(100vh-48px)] sm:min-h-[calc(100vh-96px)] pt-18 flex items-center justify-center flex-col">
                         <AnswerPanel answer={answer} error={error} />
                         <div className="relative w-[300px] md:w-1/2 rounded-[28px] border bg-white/80 px-7 py-5 mb-5 text-l placeholder:text-gray-400 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <QuestionForm

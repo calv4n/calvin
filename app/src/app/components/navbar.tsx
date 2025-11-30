@@ -16,9 +16,9 @@ export default function Navbar() {
   const brandName = "Calvin Pfrender";
 
   return (
-    <nav className="fixed top-0 left-0 w-full p-[48px] z-50 text-white mix-blend-difference">
+    <nav className="fixed top-0 left-0 w-full p-[32px] sm:p-[48px] z-50 text-white mix-blend-difference">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <ul className="flex space-x-8">
+        <ul className="flex space-x-5 sm:space-x-8">
           {navItems.map(({ name, href, underline }) => (
             <li
               key={name}

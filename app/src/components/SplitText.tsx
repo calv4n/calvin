@@ -155,7 +155,8 @@ const SplitText: React.FC<SplitTextProps> = ({
       display: 'inline-block',
       whiteSpace: 'normal',
       wordWrap: 'break-word',
-      willChange: 'transform, opacity'
+      willChange: 'transform, opacity',
+      fontFamily: 'Bdogrotesk-Title'
     };
     const classes = `split-parent ${className}`;
     switch (tag) {

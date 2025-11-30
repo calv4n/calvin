@@ -4,7 +4,7 @@ import { LatestRepositories } from "./LatestRepositories";
 
 export default function Projects() {
     return (
-        <section id="projects" className="p-[48px] bg-[#1c1c1c] text-white pt-24">
+        <section id="projects" className="px-[24px] sm:px-[48px] bg-[#1c1c1c] text-white">
             <div className="max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}
@@ -18,8 +18,8 @@ export default function Projects() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-96px)] pt-18">
-                        <h1 className="text-5xl font-bold mb-8">Projects</h1>
+                    <div className="min-h-[calc(100vh-96px)]">
+                        <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold mb-8">Projects</h1>
                         <div className="h-[400px]">
                             <div className="mt-8  text-xl font-medium mb-12">
                                 More Projects coming soon... 💫

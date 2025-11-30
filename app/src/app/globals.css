@@ -10,14 +10,21 @@
 }
 
 @font-face {
-  font-family: 'Bdogrotesk Mono';
+  font-family: 'Bdogrotesk-Mono';
   src: url('/fonts/BDOGrotesk-Bold.woff2') format('woff2');
   font-weight: 500;
 }
 
+@font-face {
+  font-family: 'Bdogrotesk-Title';
+  src: url('/fonts/BDOGrotesk-DemiBold.woff2') format('woff2');
+  font-weight: 600;
+}
+
 :root {
   --font-bdogrotesk: 'Bdogrotesk', sans-serif;
-  --font-bdogrotesk-mono: 'Bdogrotesk Mono', monospace;
+  --font-bdogrotesk-mono: 'Bdogrotesk-Mono', monospace;
+  --font-bdogrotesk-mono: 'Bdogrotesk-Title', monospace;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
