@@ -117,8 +117,8 @@ export default function Navbar() {
       </div>
 
       <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0"}`}>
-        <div className="mt-4 rounded-2xl border border-white/30 bg-white/80 px-4 py-5 backdrop-blur-xl shadow-2xl shadow-black/10 text-black">
-          <ul className="flex flex-col space-y-4 text-sm font-medium">
+        <div className={`mt-4 px-4 py-5 font-[Bdogrotesk-Title] text-bold ${textClass}`}>
+          <ul className="flex flex-col space-y-2 text-lg">
             {navItems.map(({ name, href, underline }) => (
               <li key={name}>
                 {underline ? (
