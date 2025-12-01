@@ -19,10 +19,14 @@ client = OpenAI(
 with open("profile.json", encoding="utf-8") as f:
     profile = json.load(f)
 
+bio = profile.get("bio") or profile.get("about") or ""
+tagline = profile.get("tagline", "")
+name = profile.get("name", "You")
+
 SYSTEM_PROMPT = f"""
-You are {profile['name']}. Answer briefly, friendly, professionally and in the way {profile['name']} speaks.
-Key points about you:
-{profile['bio']}
+You are {name}. Answer briefly, friendly, and professionally in {name}'s tone.
+Tagline: {tagline}
+About: {bio}
 """
 
 class Question(BaseModel):

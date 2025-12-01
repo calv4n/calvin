@@ -1,4 +1,98 @@
 {
-  "name": "Calvin",
-  "bio": "Fullstack Developer Apprentice"
+  "name": "Your Name",
+  "tagline": "Role · Tech focus · Value prop",
+  "about": "Kurzprofil in 2–3 Sätzen, was du tust, wie du arbeitest, welche Probleme du löst.",
+  "location": {
+    "city": "Zürich",
+    "country": "CH",
+    "timezone": "Europe/Zurich",
+    "remote": true,
+    "onsite": false
+  },
+  "contact": {
+    "email": "calvin.pfrender@gmail.com",
+    "website": "https://yourdomain.com",
+    "linkedin": "https://www.linkedin.com/in/calvin-pfrender-05aaa3274/",
+    "github": "https://github.com/calv4n"
+  },
+  "languages": [
+    { "name": "German", "level": "Native" },
+    { "name": "Russian", "level": "Native" },
+    { "name": "English", "level": "Fluent" },
+    { "name": "French", "level": "Basic" }
+  ],
+  "skills": {
+    "frontend": ["React", "Next.js", "TypeScript", "Angular", "TailwindCSS", "CSS", "HTML"],
+    "backend": ["Node.js", "Express", "Python", "Java", "Spring", "REST APIs", "Fast API", "Agentic Systems"],
+    "devops": ["Docker", "Kubernetes", "ArgoCD", "CI/CD", "GitHub Actions"],
+    "data_ai": ["LangChain", "OpenAI API", "PostgreSQL"],
+    "tools": ["Figma", "Jira", "VS Code", "Atlassian"]
+  },
+  "experience": [
+    {
+      "title": "Software Developer Apprentice",
+      "company": "SIX Group AG",
+      "location": "Zürich, CH",
+      "start": "2022-08",
+      "end": null,
+      "current": true,
+      "summary": "Kurzbeschreibung deiner Rolle, Verantwortung, Wirkung.",
+      "highlights": [
+        "Shipped internal portals & automations",
+        "Worked across DevOps, backend, frontend",
+        "Prototyped AI-assisted tooling"
+      ],
+      "tech": ["React", "TypeScript", "Node.js", "CI/CD", "Kubernetes"]
+    },
+    {
+      "title": "Vocational School",
+      "company": "TBZ - Zurich",
+      "location": "Zürich, CH",
+      "start": "2022-08",
+      "end": null,
+      "current": true,
+      "summary": "Kurz was du lernst (CS-Fundamentals, Projekte, Labs).",
+      "tech": ["Java", "Python", "Algorithms", "Databases"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project Name",
+      "url": "https://github.com/username/project",
+      "summary": "Worum es geht, Zielnutzen, wer es nutzt.",
+      "role": "Lead dev / Contributor",
+      "tech": ["Next.js", "TypeScript", "TailwindCSS"],
+      "highlights": [
+        "Key feature or impact",
+        "Performance or UX win",
+        "Numbers if möglich"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "TBZ - Zurich",
+      "degree": "Vocational Education in Computer Science",
+      "start": "2022-08",
+      "end": "2026-07",
+      "achievements": ["Relevant courses/projects", "Team work or competitions"]
+    }
+  ],
+  "certifications": [
+    { "name": "Cert Name", "issuer": "Org", "date": "2024-01" }
+  ],
+  "interests": ["Automation", "Cloud-native", "AI tooling", "Mentoring"],
+  "availability": {
+    "status": "Open to new opportunities",
+    "start_date": "2025-09-01",
+    "relocation": false
+  },
+  "links": [
+    { "label": "Portfolio", "url": "https://yourdomain.com" },
+    { "label": "Resume", "url": "https://yourdomain.com/resume.pdf" }
+  ],
+  "meta": {
+    "updated_at": "2025-01-01",
+    "source": "manual"
+  }
 }
