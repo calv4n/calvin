@@ -24,7 +24,7 @@ const hobbies = [
 export default function Hobbies() {
     return (
         <section id="hobbies" data-nav-theme="dark" className="relative overflow-hidden px-[24px] sm:px-[48px] bg-[#1c1c1c] text-white">
-            <div className="pointer-events-none absolute -left-24 top-24 h-64 w-64 rounded-full bg-[#0038ff]/20 blur-[120px]" />
+            <div className="pointer-events-none absolute -left-24 top-24 h-64 w-64 rounded-full" />
             <div className="pointer-events-none absolute -right-16 bottom-10 h-56 w-56 rounded-full bg-white/5 blur-[100px]" />
 
             <div className="relative max-w-7xl mx-auto">
@@ -40,16 +40,17 @@ export default function Hobbies() {
                     threshold={0.2}
                     delay={0}
                 >
-                    <div className="min-h-[calc(100vh-96px)] pt-32 sm:pt-32 pb-20">
+                    <div className="min-h-[calc(100vh-96px)] sm:min-h-[70vh] pt-32 sm:pt-32">
                         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                             <div className="lg:w-[34%] space-y-6">
                                 <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-gray-400">
                                     <span className="h-px w-10 bg-white/30" />
-                                    Beyond Work
+                                    hobbies
                                 </div>
-                                <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold leading-tight">Hobbies that keep me balanced</h1>
+                                <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold leading-tight">My Life Beyond Work</h1>
                                 <p className="text-lg text-gray-300 leading-8">
-                                    The same curiosity that drives my code gets channelled into the outdoors, movement, and capturing moments. These are the things that reset my mind and keep my work sharp.
+                                    {/* The same curiosity that drives my code gets channelled into the outdoors, movement, and capturing moments. These are the things that reset my mind and keep my work sharp. */}
+                                    My curiosity extends beyond my work — into the outdoors and physical activity. They balance my mind and sharpen my craft.
                                 </p>
                             </div>
 
