@@ -1,6 +1,7 @@
 "use client";
 
 import ShinyText from "@/components/ShinyText";
+import TextType from "@/components/TextType";
 
 type ChatMessage = { role: "user" | "assistant" | "error"; text: string; pending?: boolean };
 
@@ -43,12 +44,19 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                     );
                 }
                 return (
-                    <p
+                    <div
                         key={`${message.role}-${index}`}
                         className="text-sm sm:text-base leading-relaxed text-[#0f0f0f] whitespace-pre-wrap"
                     >
-                        {message.text}
-                    </p>
+                        <TextType
+                            key={`text-${index}-${message.text}`}
+                            text={message.text}
+                            typingSpeed={25}
+                            loop={false}
+                            showCursor={false}
+                            className="whitespace-pre-wrap"
+                        />
+                    </div>
                 );
             })}
         </div>
