@@ -19,7 +19,15 @@ export default function Projects() {
                     delay={0}
                 >
                     <div className="min-h-[calc(100vh-96px)] pt-0 sm:pt-32">
-                        <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold mb-8">Projects</h1>
+                        <div className="lg:w-[36%] space-y-6">
+                            <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-gray-400">
+                                <span className="h-px w-10 bg-white/30" />
+                                projects
+                            </div>
+                            <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold mb-8">
+                                Things I build
+                            </h1>
+                        </div>
                         <div className="h-[400px]">
                             <div className="mt-8  text-xl font-medium mb-12">
                                 More Projects coming soon... 💫

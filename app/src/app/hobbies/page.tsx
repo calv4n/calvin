@@ -1,4 +1,5 @@
 import AnimatedContent from "@/components/AnimatedContent";
+import { Highlighter } from "@/components/ui/highlighter";
 
 const hobbies = [
     {
@@ -24,9 +25,6 @@ const hobbies = [
 export default function Hobbies() {
     return (
         <section id="hobbies" data-nav-theme="dark" className="relative overflow-hidden px-[24px] sm:px-[48px] bg-[#1c1c1c] text-white">
-            <div className="pointer-events-none absolute -left-24 top-24 h-64 w-64 rounded-full" />
-            <div className="pointer-events-none absolute -right-16 bottom-10 h-56 w-56 rounded-full bg-white/5 blur-[100px]" />
-
             <div className="relative max-w-7xl mx-auto">
                 <AnimatedContent
                     distance={70}
@@ -50,7 +48,16 @@ export default function Hobbies() {
                                 <h1 className="text-5xl font-[Bdogrotesk-Title] font-bold leading-tight">My Life Beyond Work</h1>
                                 <p className="text-lg text-gray-300 leading-8">
                                     {/* The same curiosity that drives my code gets channelled into the outdoors, movement, and capturing moments. These are the things that reset my mind and keep my work sharp. */}
-                                    My curiosity extends beyond my work — into the outdoors and physical activity. They balance my mind and sharpen my craft.
+                                    My curiosity extends beyond my work — into the outdoors and physical activity. They balance my mind and{" "}
+                                    <Highlighter
+                                        action="underline"
+                                        color="#0038ff"
+                                        isView={true}
+                                        animationDuration={1400}
+                                    >
+                                        sharpen my craft.
+                                    </Highlighter>
+                                    
                                 </p>
                             </div>
 
