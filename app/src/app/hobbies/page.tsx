@@ -61,20 +61,20 @@ export default function Hobbies() {
                                         className="group relative h-[320px] sm:h-[360px] overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
                                     >
                                         <div
-                                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                                             style={{ backgroundImage: `url(${hobby.image})` }}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />
 
-                                        <span className="absolute top-4 left-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/90 backdrop-blur">
-                                            {hobby.badge}
-                                        </span>
+                                        <div className="absolute top-4 left-4 right-4 rounded-2xl bg-black/35 px-4 py-3 text-sm text-white/90 leading-6 backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                                            {hobby.description}
+                                        </div>
 
-                                        <div className="relative flex h-full flex-col justify-end p-6 space-y-2">
+                                        <div className="relative flex h-full flex-col justify-end p-6 space-y-3">
                                             <h3 className="text-2xl font-semibold leading-tight">{hobby.title}</h3>
-                                            <p className="text-sm text-gray-200/90 leading-6">
-                                                {hobby.description}
-                                            </p>
+                                            <span className="inline-flex w-fit items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/90 backdrop-blur">
+                                                {hobby.badge}
+                                            </span>
                                         </div>
 
                                         <div className="absolute inset-0 rounded-[28px] border border-white/10 opacity-0 transition duration-500 group-hover:opacity-100 group-hover:border-white/30" />
