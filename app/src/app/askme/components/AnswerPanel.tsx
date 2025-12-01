@@ -12,7 +12,7 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
     if (!messages.length) return null;
 
     return (
-        <div className="w-full max-w-2xl flex flex-col gap-3 mb-6">
+        <div className="w-full max-w-2xl flex flex-col gap-4 mb-8">
             {messages.map((message, index) => {
                 if (message.role === "user") {
                     return (
