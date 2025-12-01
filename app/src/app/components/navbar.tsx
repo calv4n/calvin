@@ -72,6 +72,7 @@ export default function Navbar() {
   const isDark = navTheme === "dark";
   const textClass = isDark ? "text-white" : "text-[#0f0f0f]";
   const lineClass = isDark ? "bg-white" : "bg-[#0f0f0f]";
+  const underlineColor = isDark ? "#0038ff" : "#ffc700";
 
   return (
     <nav
@@ -90,7 +91,7 @@ export default function Navbar() {
             >
               <Link href={href}>
                 {underline ? (
-                  <Highlighter action="underline" color="#0038ff" animationDuration={1400}>
+                  <Highlighter action="underline" color={underlineColor} animationDuration={1400}>
                     {name}
                   </Highlighter>
                 ) : (
@@ -126,7 +127,7 @@ export default function Navbar() {
             {navItems.map(({ name, href, underline }) => (
               <li key={name}>
                 {underline ? (
-                  <Highlighter action="underline" color="#0038ff" animationDuration={1400}>
+                  <Highlighter action="underline" color={underlineColor} animationDuration={1400}>
                     <Link
                       href={href}
                       onClick={() => setIsOpen(false)}

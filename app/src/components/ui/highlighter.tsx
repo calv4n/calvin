@@ -79,10 +79,9 @@ export function Highlighter({
     resizeObserver.observe(document.body)
 
     return () => {
-      if (element) {
-        annotate(element, { type: action }).remove()
-        resizeObserver.disconnect()
-      }
+      annotationRef.current?.remove()
+      annotationRef.current = null
+      resizeObserver.disconnect()
     }
   }, [
     shouldShow,
