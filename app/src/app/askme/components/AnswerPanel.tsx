@@ -1,6 +1,8 @@
 "use client";
 
-type ChatMessage = { role: "user" | "assistant" | "error"; text: string };
+import ShinyText from "@/components/ShinyText";
+
+type ChatMessage = { role: "user" | "assistant" | "error"; text: string; pending?: boolean };
 
 type AnswerPanelProps = {
     messages: ChatMessage[];
@@ -27,6 +29,16 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                         <div key={`${message.role}-${index}`} className="text-sm text-red-600">
                             <p className="font-semibold">Error:</p>
                             <p className="leading-relaxed">{message.text}</p>
+                        </div>
+                    );
+                }
+                if (message.pending) {
+                    return (
+                        <div
+                            key={`${message.role}-${index}`}
+                            className="text-sm sm:text-base leading-relaxed text-[#0f0f0f]"
+                        >
+                            <ShinyText text={message.text} disabled={false} speed={2} className="text-inherit text-gray-700 opacity-70 font-semibold" />
                         </div>
                     );
                 }

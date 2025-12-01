@@ -7,6 +7,8 @@ import QuestionForm from "./components/QuestionForm";
 import PresetQuestions from "./components/PresetQuestions";
 import { askQuestion } from "./api";
 
+type ChatMessage = { role: "user" | "assistant" | "error"; text: string; pending?: boolean };
+
 const QUESTIONS = [
     "What inspires you most about your work?",
     "What do you do in your free time?",
@@ -14,7 +16,7 @@ const QUESTIONS = [
 
 export default function Askme() {
     const [question, setQuestion] = useState("");
-    const [messages, setMessages] = useState<{ role: "user" | "assistant" | "error"; text: string }[]>([]);
+    const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [loading, setLoading] = useState(false);
     const answerRef = useRef<HTMLDivElement | null>(null);
     const hasMessages = messages.length > 0;
@@ -22,14 +24,36 @@ export default function Askme() {
     const handleAsk = useCallback(async () => {
         if (!question.trim()) return;
         const currentQuestion = question.trim();
-        setMessages((prev) => [...prev, { role: "user", text: currentQuestion }]);
+        setMessages((prev) => [
+            ...prev,
+            { role: "user", text: currentQuestion },
+            { role: "assistant", text: "Thinking...", pending: true },
+        ]);
         setLoading(true);
         try {
             const result = await askQuestion(currentQuestion);
-            setMessages((prev) => [...prev, { role: "assistant", text: result }]);
+            setMessages((prev) => {
+                const next = [...prev];
+                for (let i = next.length - 1; i >= 0; i--) {
+                    if (next[i].pending) {
+                        next[i] = { role: "assistant", text: result };
+                        return next;
+                    }
+                }
+                return [...next, { role: "assistant", text: result }];
+            });
         } catch (err) {
             const message = err instanceof Error ? err.message : "Something went wrong.";
-            setMessages((prev) => [...prev, { role: "error", text: message }]);
+            setMessages((prev) => {
+                const next = [...prev];
+                for (let i = next.length - 1; i >= 0; i--) {
+                    if (next[i].pending) {
+                        next[i] = { role: "error", text: message };
+                        return next;
+                    }
+                }
+                return [...next, { role: "error", text: message }];
+            });
         } finally {
             setLoading(false);
         }
