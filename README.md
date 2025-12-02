@@ -4,7 +4,7 @@ npm install
 npm run dev
 
 ## run backend
-cd /backend
+cd /api
 
 python -m venv .venv
 
