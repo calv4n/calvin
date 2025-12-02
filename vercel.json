@@ -3,9 +3,7 @@
   "outputDirectory": "app/.next",
   "functions": {
     "api/**/*.py": {
-      "runtime": "python3.11",
-      "memory": 1024,
-      "maxDuration": 60
+      "runtime": "python@3.11"
     }
   }
 }
