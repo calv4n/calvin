@@ -1,4 +1,59 @@
 {
-  "name": "Calvin",
-  "bio": "Fullstack Developer Apprentice"
+  "name": "Calvin Pfrender",
+  "preferred_name": "Calvin",
+  "location": "Near Zurich, Switzerland",
+  "role": "Software Developer Apprentice at SIX Group AG",
+  "bio": "Swiss software developer apprentice focused on clarity, reliability, and best practices while building internal web apps and automations.",
+  "values": [
+    "Clarity and reliability",
+    "Best practices",
+    "Continuous improvement",
+    "Thoughtful, friendly collaboration"
+  ],
+  "experience": [
+    {
+      "timeline": "2022-2026",
+      "role": "Software Developer Apprentice",
+      "company": "SIX Group AG",
+      "focus": "Building and maintaining various internal web applications and automations, taking ownership of both development and ongoing improvements. Gaining experience in agile teamwork, cloud technologies, DevOps practices, and AI integrations while contributing to different teams and internal initiatives."
+    },
+    {
+      "timeline": "2022-2026",
+      "role": "Vocational School Student",
+      "company": "TBZ Zurich",
+      "focus": "Completing vocational education in software engineering EFZ."
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "Angular",
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Web Components",
+      "Tailwind CSS",
+      "HTML/CSS"
+    ],
+    "backend_devops": [
+      "Java",
+      "Spring",
+      "Django",
+      "Python",
+      "LangChain",
+      "ArgoCD",
+      "Kubernetes",
+      "CI/CD pipelines"
+    ],
+    "strengths": [
+      "Building reliable web applications",
+      "Designing internal automations",
+      "Working across frontend and backend",
+      "Applying AI tools thoughtfully"
+    ]
+  },
+  "hobbies": [
+    "Hiking in the Swiss Alps",
+    "Practicing martial arts to sharpen strategic thinking",
+    "Sometimes gaming"
+  ]
 }
