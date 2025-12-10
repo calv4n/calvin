@@ -46,7 +46,7 @@ export default function Projects() {
                                     className="inline-flex items-center justify-center gap-3 mt-6 md:mt-8 px-6 py-3 rounded-full bg-[#1c1c1c] text-white text-sm font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition hover:translate-y-[-2px] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c1c1c]"
                                 >
                                     <span className="material-symbols-outlined text-base">mail</span>
-                                    contact@calvinpfrender.ch
+                                    contact@calvinpfrender.dev
                                 </a>
                             </div>
                             <div className="flex flex-row md:flex-col gap-3">
