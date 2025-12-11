@@ -8,15 +8,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
-client = OpenAI(
-    base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
-    api_key=os.environ["OPENROUTER_API_KEY"],
-    default_headers={
-        "HTTP-Referer": os.getenv("BASE_URL", ""),
-        "X-Title": os.getenv("X_TITLE", "Portfolio AskMe"),
-    },
-)
-
 profile_path = Path(__file__).with_name("profile.json")
 with profile_path.open(encoding="utf-8") as f:
     profile = json.load(f)
@@ -103,21 +94,40 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def get_client() -> OpenAI:
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="OPENROUTER_API_KEY is not configured")
+
+    return OpenAI(
+        base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
+        api_key=api_key,
+        default_headers={
+            "HTTP-Referer": os.getenv("BASE_URL", ""),
+            "X-Title": os.getenv("X_TITLE", "Portfolio AskMe"),
+        },
+    )
+
+
 @app.post("/ask")
 async def ask(q: Question):
     model_name = os.getenv("OPENROUTER_MODEL_NAME")
     if not model_name:
         raise HTTPException(status_code=500, detail="OPENROUTER_MODEL_NAME is not configured")
-    if not os.getenv("OPENROUTER_API_KEY"):
-        raise HTTPException(status_code=500, detail="OPENROUTER_API_KEY is not configured")
 
-    completion = client.chat.completions.create(
-        model=model_name,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": q.message},
-        ],
-    )
+    client = get_client()
+
+    try:
+        completion = client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": q.message},
+            ],
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Upstream model error: {exc}") from exc
+
     return {"answer": completion.choices[0].message.content}
 
 # for vercel deployment
