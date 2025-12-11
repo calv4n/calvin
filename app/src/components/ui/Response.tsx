@@ -378,7 +378,7 @@ function CodeBlock({ code, language, className }: { code: string; language?: str
             <button
                 type="button"
                 onClick={handleCopy}
-                className="absolute right-3 top-3 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 transition hover:bg-white/20"
+                className="absolute cursor-pointer right-3 top-3 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 transition hover:bg-white/20"
             >
                 {copied ? "Copied" : "Copy"}
             </button>
