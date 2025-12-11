@@ -87,9 +87,16 @@ class Question(BaseModel):
 
 app = FastAPI()
 
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS")
+allow_origins = (
+    [origin.strip() for origin in allowed_origins_env.split(",") if origin.strip()]
+    if allowed_origins_env
+    else ["*"]
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("BASE_URL")], # frontend origin
+    allow_origins=allow_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )

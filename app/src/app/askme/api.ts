@@ -1,7 +1,10 @@
 "use client";
 
 const API_BASE =
-    process.env.NEXT_PUBLIC_BASE_URL ?? process.env.BASE_URL ?? "http://localhost:8000";
+    process.env.NEXT_PUBLIC_API_BASE ??
+    process.env.NEXT_PUBLIC_BASE_URL ??
+    process.env.BASE_URL ??
+    "/api";
 
 export async function askQuestion(question: string): Promise<string> {
     const response = await fetch(`${API_BASE}/ask`, {
