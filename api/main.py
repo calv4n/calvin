@@ -1,5 +1,6 @@
 import os, json
-from fastapi import FastAPI
+from pathlib import Path
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -16,7 +17,8 @@ client = OpenAI(
     },
 )
 
-with open("profile.json", encoding="utf-8") as f:
+profile_path = Path(__file__).with_name("profile.json")
+with profile_path.open(encoding="utf-8") as f:
     profile = json.load(f)
 
 
@@ -103,8 +105,14 @@ app.add_middleware(
 
 @app.post("/ask")
 async def ask(q: Question):
+    model_name = os.getenv("OPENROUTER_MODEL_NAME")
+    if not model_name:
+        raise HTTPException(status_code=500, detail="OPENROUTER_MODEL_NAME is not configured")
+    if not os.getenv("OPENROUTER_API_KEY"):
+        raise HTTPException(status_code=500, detail="OPENROUTER_API_KEY is not configured")
+
     completion = client.chat.completions.create(
-        model= os.getenv("OPENROUTER_MODEL_NAME"),
+        model=model_name,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": q.message},
