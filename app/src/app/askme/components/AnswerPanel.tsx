@@ -1,7 +1,7 @@
 "use client";
 
 import ShinyText from "@/components/ShinyText";
-import TextType from "@/components/TextType";
+import { Response } from "@/components/ui/Response";
 
 type ChatMessage = { role: "user" | "assistant" | "error"; text: string; pending?: boolean };
 
@@ -21,7 +21,12 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                             key={`${message.role}-${index}`}
                             className="self-end max-w-[85%] rounded-3xl rounded-br-md bg-white/90 text-[#0f0f0f] text-sm sm:text-base px-4 py-3 shadow-[0_10px_28px_rgba(0,0,0,0.08)]"
                         >
-                            <p className="leading-relaxed break-words whitespace-pre-wrap">{message.text}</p>
+                            <Response
+                                className="text-sm sm:text-base leading-relaxed break-words"
+                                parseIncompleteMarkdown={false}
+                            >
+                                {message.text}
+                            </Response>
                         </div>
                     );
                 }
@@ -44,18 +49,13 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                     );
                 }
                 return (
-                    <div
-                        key={`${message.role}-${index}`}
-                        className="text-sm sm:text-base leading-relaxed text-[#0f0f0f] whitespace-pre-wrap"
-                    >
-                        <TextType
-                            key={`text-${index}-${message.text}`}
-                            text={message.text}
-                            typingSpeed={25}
-                            loop={false}
-                            showCursor={false}
-                            className="whitespace-pre-wrap"
-                        />
+                    <div key={`${message.role}-${index}`} className="relative text-sm sm:text-base leading-relaxed text-[#0f0f0f]">
+                        <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-gradient-to-b from-[#1c1c1c] to-[#2d2d2d]" />
+                        <div className="ml-3 px-4 py-3 ">
+                            <Response className="text-sm sm:text-base leading-relaxed break-words">
+                                {message.text}
+                            </Response>
+                        </div>
                     </div>
                 );
             })}
