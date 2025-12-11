@@ -8,9 +8,21 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
-profile_path = Path(__file__).with_name("profile.json")
-with profile_path.open(encoding="utf-8") as f:
-    profile = json.load(f)
+def load_profile() -> dict:
+    profile_path = Path(__file__).with_name("profile.json")
+    with profile_path.open(encoding="utf-8") as f:
+        return json.load(f)
+
+
+profile_load_error: str | None = None
+try:
+    profile = load_profile()
+except FileNotFoundError:
+    profile = {}
+    profile_load_error = "profile.json is missing from the deployment"
+except json.JSONDecodeError as exc:
+    profile = {}
+    profile_load_error = f"profile.json is invalid: {exc}"
 
 
 def format_section(title: str, lines: list[str]) -> str:
@@ -111,6 +123,9 @@ def get_client() -> OpenAI:
 
 @app.post("/ask")
 async def ask(q: Question):
+    if profile_load_error:
+        raise HTTPException(status_code=500, detail=profile_load_error)
+
     model_name = os.getenv("OPENROUTER_MODEL_NAME")
     if not model_name:
         raise HTTPException(status_code=500, detail="OPENROUTER_MODEL_NAME is not configured")

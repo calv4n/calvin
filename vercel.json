@@ -4,6 +4,11 @@
     { "src": "app/package.json", "use": "@vercel/next" },
     { "src": "api/main.py", "use": "@vercel/python" }
   ],
+  "functions": {
+    "api/main.py": {
+      "includeFiles": "api/profile.json"
+    }
+  },
   "routes": [
     { "src": "/api/(.*)", "dest": "api/main.py" },
     { "handle": "filesystem" },
