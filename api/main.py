@@ -89,8 +89,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("BASE_URL")],  # your Frontend
-    allow_methods=["*"],                    # has OPTIONS
+    allow_origins=[os.getenv("BASE_URL")], # frontend origin
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
@@ -104,3 +104,8 @@ async def ask(q: Question):
         ],
     )
     return {"answer": completion.choices[0].message.content}
+
+# for vercel deployment
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
