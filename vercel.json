@@ -6,7 +6,8 @@
   ],
   "functions": {
     "api/main.py": {
-      "includeFiles": "api/profile.json"
+      "includeFiles": "api/profile.json",
+      "runtime": "python3.11"
     }
   },
   "routes": [
