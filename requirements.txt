@@ -1,1 +1,5 @@
-﻿-r api/requirements.txt
+fastapi
+openai
+uvicorn
+python-dotenv
+pydantic
