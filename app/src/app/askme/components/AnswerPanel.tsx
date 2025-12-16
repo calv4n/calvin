@@ -30,6 +30,7 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                         </div>
                     );
                 }
+
                 if (message.role === "error") {
                     return (
                         <div key={`${message.role}-${index}`} className="text-sm text-red-600">
@@ -38,26 +39,44 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                         </div>
                     );
                 }
-                if (message.pending) {
+
+                if (message.role === "assistant" && message.pending) {
                     return (
                         <div
                             key={`${message.role}-${index}`}
-                            className="text-sm sm:text-base leading-relaxed text-[#0f0f0f]"
+                            className="relative text-sm sm:text-base leading-relaxed text-[#0f0f0f]"
+                            aria-busy
                         >
-                            <ShinyText text={message.text} disabled={false} speed={2} className="text-inherit text-gray-700 opacity-70 font-semibold" />
+                            <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-gradient-to-b from-[#1c1c1c] to-[#2d2d2d]" />
+                            <div className="ml-3 px-4 py-3">
+                                <ShinyText
+                                    text={message.text || "Thinking..."}
+                                    disabled={false}
+                                    speed={6}
+                                    className="text-sm sm:text-base leading-relaxed text-gray-700"
+                                />
+                            </div>
                         </div>
                     );
                 }
-                return (
-                    <div key={`${message.role}-${index}`} className="relative text-sm sm:text-base leading-relaxed text-[#0f0f0f]">
-                        <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-gradient-to-b from-[#1c1c1c] to-[#2d2d2d]" />
-                        <div className="ml-3 px-4 py-3 ">
-                            <Response className="text-sm sm:text-base leading-relaxed break-words">
-                                {message.text}
-                            </Response>
+
+                if (message.role === "assistant") {
+                    return (
+                        <div
+                            key={`${message.role}-${index}`}
+                            className="relative text-sm sm:text-base leading-relaxed text-[#0f0f0f]"
+                        >
+                            <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-gradient-to-b from-[#1c1c1c] to-[#2d2d2d]" />
+                            <div className="ml-3 px-4 py-3">
+                                <Response className="text-sm sm:text-base leading-relaxed break-words">
+                                    {message.text}
+                                </Response>
+                            </div>
                         </div>
-                    </div>
-                );
+                    );
+                }
+
+                return null;
             })}
         </div>
     );

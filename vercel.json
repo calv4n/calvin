@@ -1,17 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "app/package.json", "use": "@vercel/next" },
-    { "src": "api/main.py", "use": "@vercel/python" }
+    { "src": "app/package.json", "use": "@vercel/next" }
   ],
-  "functions": {
-    "api/main.py": {
-      "includeFiles": "api/profile.json",
-      "runtime": "python3.11"
-    }
-  },
   "routes": [
-    { "src": "/api/(.*)", "dest": "api/main.py" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "app/$1" }
   ]

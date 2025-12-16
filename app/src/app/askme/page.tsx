@@ -24,23 +24,40 @@ export default function Askme() {
     const handleAsk = useCallback(async () => {
         if (!question.trim()) return;
         const currentQuestion = question.trim();
+        let fullAnswer = "";
+
         setMessages((prev) => [
             ...prev,
             { role: "user", text: currentQuestion },
-            { role: "assistant", text: "Thinking...", pending: true },
+            { role: "assistant", text: "", pending: true },
         ]);
         setLoading(true);
         try {
-            const result = await askQuestion(currentQuestion);
+            const result = await askQuestion(currentQuestion, (chunk) => {
+                fullAnswer += chunk;
+                setMessages((prev) => {
+                    const next = [...prev];
+                    for (let i = next.length - 1; i >= 0; i--) {
+                        if (next[i].pending) {
+                            next[i] = { ...next[i], text: (next[i].text ?? "") + chunk };
+                            return next;
+                        }
+                    }
+                    return next;
+                });
+            });
+
             setMessages((prev) => {
                 const next = [...prev];
                 for (let i = next.length - 1; i >= 0; i--) {
                     if (next[i].pending) {
-                        next[i] = { role: "assistant", text: result };
+                        const text = result || fullAnswer || next[i].text || "No answer received.";
+                        next[i] = { role: "assistant", text };
                         return next;
                     }
                 }
-                return [...next, { role: "assistant", text: result }];
+                const text = result || fullAnswer || "No answer received.";
+                return [...next, { role: "assistant", text }];
             });
         } catch (err) {
             const message = err instanceof Error ? err.message : "Something went wrong.";

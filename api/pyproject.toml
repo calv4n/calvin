@@ -1,6 +1,0 @@
-[project]
-name = "calvin-pfrender"
-version = "0.1.0"
-
-[project.scripts]
-app = "main:app"
