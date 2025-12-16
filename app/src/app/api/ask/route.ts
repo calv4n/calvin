@@ -88,7 +88,8 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
     }
 
-    const message = typeof (body as { message?: string })?.message === "string" ? (body as { message?: string }).message.trim() : "";
+    const messageValue = (body as { message?: string })?.message;
+    const message = typeof messageValue === "string" ? messageValue.trim() : "";
     if (!message) {
         return NextResponse.json({ error: "Message is required" }, { status: 400 });
     }
