@@ -47,15 +47,12 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                             className="relative text-sm sm:text-base leading-relaxed text-[#0f0f0f]"
                             aria-busy
                         >
-                            <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-gradient-to-b from-[#1c1c1c] to-[#2d2d2d]" />
-                            <div className="ml-3 px-4 py-3">
-                                <ShinyText
-                                    text={message.text || "Thinking..."}
-                                    disabled={false}
-                                    speed={6}
-                                    className="text-sm sm:text-base leading-relaxed text-gray-700"
-                                />
-                            </div>
+                            <ShinyText
+                                text={message.text || "Thinking..."}
+                                disabled={false}
+                                speed={6}
+                                className="text-sm sm:text-base leading-relaxed"
+                            />
                         </div>
                     );
                 }
@@ -66,12 +63,9 @@ export default function AnswerPanel({ messages }: AnswerPanelProps) {
                             key={`${message.role}-${index}`}
                             className="relative text-sm sm:text-base leading-relaxed text-[#0f0f0f]"
                         >
-                            <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-gradient-to-b from-[#1c1c1c] to-[#2d2d2d]" />
-                            <div className="ml-3 px-4 py-3">
-                                <Response className="text-sm sm:text-base leading-relaxed break-words">
-                                    {message.text}
-                                </Response>
-                            </div>
+                            <Response className="text-sm sm:text-base leading-relaxed break-words">
+                                {message.text}
+                            </Response>
                         </div>
                     );
                 }
