@@ -18,8 +18,18 @@ export default function Askme() {
     const [question, setQuestion] = useState("");
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [loading, setLoading] = useState(false);
-    const answerRef = useRef<HTMLDivElement | null>(null);
+    const bottomRef = useRef<HTMLDivElement | null>(null);
     const hasMessages = messages.length > 0;
+
+    const scrollToBottom = useCallback(() => {
+        requestAnimationFrame(() => {
+            if (bottomRef.current) {
+                bottomRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+            } else {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+            }
+        });
+    }, []);
 
     const handleAsk = useCallback(async () => {
         if (!question.trim()) return;
@@ -83,8 +93,8 @@ export default function Askme() {
 
     useEffect(() => {
         if (!hasMessages) return;
-        answerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, [hasMessages, messages]);
+        scrollToBottom();
+    }, [hasMessages, messages, scrollToBottom]);
 
     const handlePreset = useCallback((preset: string) => {
         setQuestion(preset);
@@ -110,7 +120,7 @@ export default function Askme() {
                             hasMessages ? "" : "items-center justify-center"
                         }`}
                     >
-                        <div ref={answerRef} className="w-full flex justify-center">
+                        <div className="w-full flex justify-center">
                             <AnswerPanel messages={messages} />
                         </div>
 
@@ -129,6 +139,7 @@ export default function Askme() {
                             </div>
                             <PresetQuestions questions={QUESTIONS} onSelect={handlePreset} />
                         </div>
+                        <div ref={bottomRef} aria-hidden className="h-px w-full" />
                     </div>
                 </AnimatedContent>
             </div>
